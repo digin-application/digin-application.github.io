@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-FQB3EBQHKY"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-FQB3EBQHKY");
+        </script>
+        <title>DigIn: the Audience Engagement Tool</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="canonical" href="https://digin.app" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="A Practical New Tool for Deepening Audience Engagement on Your Content. Give out perks to motivate and reward the most engaged members of your audience."
+        />
+        <meta
+            name="keywords"
+            content="Content creator, attention, engagement, rewards, perks, benefits, giveaways, audience"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+            property="og:title"
+            content="DigIn: the Audience Engagement Tool"
+        />
+        <meta
+            property="og:description"
+            content="A Practical New Tool for Deepening Audience Engagement on Your Content. Give out perks to motivate and reward the most engaged members of your audience."
+        />
+        <meta
+            property="og:image"
+            content="https://digin.app/assets/digin.svg"
+        />
+        <meta property="og:url" content="https://digin.app" />
+        <meta property="og:type" content="website" />
+        <!-- Google Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary-color: #846eff;
+                --secondary-color: #333;
+                --background-color: #f9f9f9;
+                --accent-color: #ffca28;
+                --font-family: "Inter", sans-serif;
+                --gap-size: 25px;
+                --section-spacing-mobile: 10px;
+                --section-spacing-tablet: 20px;
+                --section-spacing-desktop: 40px;
+
+                /* Font sizes for mobile */
+                --fs-xl: 1.5rem; /* Large headings */
+                --fs-lg: 1.25rem; /* Subheadings */
+                --fs-md: 0.875rem; /* Regular text */
+                --fs-sm: 0.75rem; /* Small text */
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scrollbar-gutter: stable;
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: var(--font-family);
+                background: var(--background-color);
+                color: var(--secondary-color);
+                line-height: 1.6;
+                font-size: var(--fs-md);
+            }
+            .container {
+                max-width: 1200px;
+                margin: auto;
+                padding: 10px;
+            }
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px 0;
+                margin-bottom: var(--section-spacing-mobile);
+            }
+            .logo {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+            .tagline {
+                font-size: var(--fs-xl);
+                font-weight: 600;
+                margin: 20px 0 40px;
+                text-align: center;
+            }
+
+            .tagline-answer {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s ease-out forwards;
+                animation-delay: 0.85s;
+            }
+
+            .page-content {
+                display: none; /* hidden & no space reserved */
+                flex-direction: column;
+                opacity: 0; /* ensure it starts invisible */
+                transform: translateY(20px); /* for your “pop up” */
+            }
+
+            .page-content.visible {
+                display: flex;
+                animation: fadeInUp 0.4s ease-out forwards;
+                /* no animation-delay here */
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            } */
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .underline-hand {
+                position: relative;
+                display: inline-block;
+            }
+
+            .underline-animated {
+                position: absolute;
+                left: 0;
+                bottom: -0.3em;
+                width: 100%;
+                height: 0.6em;
+                pointer-events: none;
+            }
+
+            .underline-animated path {
+                fill: none;
+                stroke: #846eff;
+                stroke-width: 5;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 150;
+                stroke-dashoffset: 150;
+                animation: draw-underline 0.5s ease-out forwards;
+                animation-delay: 1.8s;
+            }
+
+            @keyframes draw-underline {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            /* Hero section styling - updated to make summary and image side by side */
+            .hero-section {
+                display: flex;
+                flex-direction: column;
+                gap: var(--gap-size);
+                margin-bottom: var(--section-spacing-mobile);
+            }
+
+            .hero-content,
+            .hero-image {
+                flex: 1 1 100%;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .summary {
+                font-size: var(--fs-md);
+                text-align: left;
+                padding: 20px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-left: 5px solid var(--primary-color);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .summary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .explainer-image {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                object-fit: contain;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            /* Countdown section */
+            .countdown {
+                text-align: center;
+                font-size: var(--fs-lg);
+                margin-bottom: var(--section-spacing-mobile);
+                background: white;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                padding: 25px;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-top: 5px solid var(--primary-color);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            #countdown span {
+                font-weight: 900;
+                color: var(--primary-color);
+            }
+
+            #countdown {
+                /* kill any leftover dotted-grid backgrounds */
+                background-image: none !important;
+
+                /* your clean line-art frame */
+                background: #fff;
+                padding: 24px 20px;
+                margin: 30px auto;
+                max-width: 420px;
+                position: relative;
+                border: 4px solid var(--primary-color);
+                border-radius: 8px;
+                transform: rotate(-4deg);
+                box-shadow: none;
+            }
+
+            /* make the whole box clickable */
+            #countdown {
+                /* shrink it down slightly */
+                padding: 16px 18px; /* was 24px 20px */
+                max-width: 380px; /* was 420px */
+                margin: 20px auto; /* was 30px auto */
+
+                /* keep the rest as-is */
+                background: #fff;
+                color: var(--primary-color);
+                font-weight: 900;
+                position: relative;
+                border: 8px solid var(--primary-color);
+                border-radius: 12px;
+                transform: rotate(-4deg);
+                box-shadow: none;
+                display: block;
+                text-decoration: none;
+                cursor: pointer;
+
+                /* corner accents */
+                background-image: linear-gradient(
+                        var(--primary-color) 4px,
+                        transparent 0
+                    ),
+                    linear-gradient(
+                        90deg,
+                        var(--primary-color) 4px,
+                        transparent 0
+                    ),
+                    linear-gradient(var(--primary-color) 4px, transparent 0),
+                    linear-gradient(
+                        90deg,
+                        var(--primary-color) 4px,
+                        transparent 0
+                    ),
+                    linear-gradient(var(--primary-color) 4px, transparent 0),
+                    linear-gradient(
+                        90deg,
+                        var(--primary-color) 4px,
+                        transparent 0
+                    ),
+                    linear-gradient(var(--primary-color) 4px, transparent 0),
+                    linear-gradient(
+                        90deg,
+                        var(--primary-color) 4px,
+                        transparent 0
+                    );
+                background-repeat: no-repeat;
+                background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px,
+                    4px 20px, 20px 4px, 4px 20px, 20px 4px;
+                background-position: top left, top left, top right, top right,
+                    bottom right, bottom right, bottom left, bottom left;
+            }
+
+            /* hover feedback to show it's clickable */
+            #countdown:hover {
+                transform: rotate(-4deg) scale(1.015);
+            }
+
+            /* ensure your arrow/text still pick up the primary color */
+            #countdown p,
+            #countdown svg {
+                color: var(--primary-color);
+                pointer-events: none; /* so click always hits the <a> */
+            }
+
+            /* link styling */
+            .scroll-link {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 600;
+                position: relative;
+            }
+            .scroll-link .arrow {
+                display: inline-block;
+                margin-left: 4px;
+                font-size: 0.9em;
+                transition: transform 0.2s ease;
+            }
+            .scroll-link:hover .arrow {
+                transform: translateX(3px);
+            }
+
+            /* Default: single-item per row */
+            .benefits {
+                display: flex;
+                flex-direction: column;
+                gap: var(--gap-size);
+                font-size: calc(var(--fs-md) * 0.9);
+                margin-bottom: var(--section-spacing-mobile);
+            }
+            .benefits > h1.tagline {
+                flex: 0 0 100%;
+                width: 100%;
+                margin-bottom: var(--gap-size);
+            }
+            .benefit {
+                width: 100%;
+                background: #fff;
+                border-radius: 12px;
+                padding: 20px;
+                text-align: center;
+                transition: all 0.2s ease-in-out;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+            .benefit:hover {
+                background: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            }
+            .benefit-icon {
+                width: auto;
+                height: 2.5em;
+                margin-bottom: 15px;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+            .benefit h3 {
+                font-size: var(--fs-md);
+                margin-bottom: 10px;
+            }
+
+            #launch-date {
+                font-size: var(--fs-md);
+                font-weight: 300 !important;
+                color: #333 !important;
+            }
+
+            .cta {
+                display: flex;
+                flex-direction: column;
+                gap: var(--gap-size);
+                margin-bottom: var(--section-spacing-mobile);
+            }
+            .action {
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                padding: 25px;
+                text-align: center;
+                flex: 1;
+            }
+            .action p {
+                margin-bottom: 15px;
+                font-weight: 600;
+                font-size: var(--fs-lg);
+            }
+            .action input[type="email"] {
+                padding: 12px;
+                width: 80%;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                margin-bottom: 15px;
+                font-size: var(--fs-md);
+            }
+            .btn {
+                display: inline-block;
+                background: var(--primary-color);
+                color: #fff;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 6px;
+                text-decoration: none;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: var(--fs-md);
+                line-height: 1.5;
+                box-sizing: border-box;
+                min-width: 120px;
+                text-align: center;
+            }
+            .footer {
+                text-align: center;
+                padding: 10px 0;
+                margin-top: 20px;
+                font-size: var(--fs-sm);
+                color: #666;
+            }
+
+            .footer a {
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            .footer img {
+                height: 2.5em;
+                width: auto;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+            .footer-email {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5em;
+                margin-bottom: 1em;
+            }
+
+            .footer-email a {
+                color: var(--primary-color);
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .fold-bottom-content {
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
+                white-space: nowrap;
+                gap: 0.4em;
+                padding: 0 10px;
+
+                /* --- remove these from the open state --- */
+                /* overflow: hidden; */
+                /* max-height: 500px; */
+                /* opacity: 1; */
+
+                /* so the container just wraps its content: */
+                overflow: visible;
+                max-height: none;
+                opacity: 1;
+
+                transition: max-height 0.5s ease, opacity 0.5s ease,
+                    margin-bottom 0.5s ease;
+            }
+
+            /* only when we add .collapsed do we clamp it down and hide it */
+            .fold-bottom-content.collapsed {
+                overflow: hidden;
+                max-height: 0;
+                opacity: 0;
+                margin-bottom: 0;
+            }
+
+            /* allow CTA to animate its border */
+            .cta {
+                transition: border 0.5s ease;
+                /* ensure it has no border by default */
+                border: none;
+            }
+
+            /* helper class to turn on the same border */
+            .cta.with-border {
+                border: 8px solid var(--primary-color);
+                transition: border 0.5s ease;
+                border-radius: 12px;
+                padding: 16px;
+            }
+
+            /* 1. make the form controls sit side by side */
+            .notify-controls {
+                display: flex;
+                gap: 10px; /* space between input & button */
+                align-items: center; /* vertical center */
+                flex-wrap: wrap; /* wrap on very narrow screens */
+                justify-content: center; /* center on larger widths */
+            }
+
+            /* 2. allow input to grow and fill available width */
+            .notify-controls input[type="email"] {
+                flex: 1; /* take up remaining space */
+                margin-bottom: 0; /* remove the old bottom margin */
+                width: auto; /* override fixed-width */
+            }
+
+            /* 3. tighten button spacing if needed */
+            .notify-controls .btn {
+                white-space: nowrap; /* prevent button text wrapping */
+                margin-bottom: 0; /* align baseline with the input */
+            }
+
+            .response-message {
+                margin-top: 12px;
+                font-size: var(--fs-lg);
+                font-weight: 600;
+                color: var(--primary-color);
+                min-height: 1.2em; /* reserve space even when empty */
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .response-message.visible {
+                opacity: 1;
+            }
+
+            /* Mid-size: two benefits per row */
+            @media (min-width: 420px) and (max-width: 720px) {
+                :root {
+                    --fs-xl: 1.75rem;
+                    --fs-lg: 1.5rem;
+                    --fs-md: 0.9rem;
+                    --fs-sm: 0.8rem;
+                }
+
+                header {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+                .hero-section {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+                .benefits {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+                .countdown {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+                .cta {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+                .logo {
+                    max-width: 250px;
+                }
+
+                .fold-bottom-content {
+                    margin-bottom: var(--section-spacing-tablet);
+                }
+
+                /* Position content strategically for tablet fold */
+                .hero-section {
+                    min-height: auto;
+                }
+                .benefits {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+                .benefit {
+                    flex: 1 1 calc(50% - var(--gap-size));
+                }
+                /* Position countdown and CTA just above the fold */
+                .countdown-section {
+                    margin-top: 80px; /* Push it down toward the fold */
+                }
+
+                /* Calculate approximate fold based on tablet height */
+                .first-fold-content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                /* then order its direct children: */
+                .first-fold-content .hero-section {
+                    order: 1;
+                }
+                .first-fold-content .fold-bottom-content {
+                    order: 2; /* wraps your .countdown */
+                }
+                /* finally the siblings of first-fold-content */
+                .page-content .cta {
+                    order: 3;
+                }
+                .first-fold-content .benefits-container {
+                    order: 4;
+                }
+                .page-content .footer {
+                    order: 5;
+                }
+            }
+
+            /* Large: four benefits per row, header and `s in row */
+            @media (min-width: 720px) {
+                :root {
+                    --fs-xl: 2rem;
+                    --fs-lg: 1.75rem;
+                    --fs-md: 1.125rem;
+                    --fs-sm: 1rem;
+                }
+
+                header {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    text-align: left;
+                }
+
+                .fold-bottom-content {
+                    margin-bottom: var(--section-spacing-desktop);
+                }
+
+                .hero-section {
+                    flex-direction: row;
+                    align-items: stretch;
+                }
+                .hero-content {
+                    width: 40%;
+                    padding-right: 20px;
+                }
+                .hero-image {
+                    width: 60%;
+                    padding-left: 20px;
+                }
+                .explainer-image {
+                    width: 100%;
+                    height: 100%;
+                    max-height: none;
+                    object-fit: contain;
+                }
+                .summary:last-child {
+                    margin-bottom: 0;
+                }
+
+                /* Position content to make countdown and CTA at the fold */
+                .benefits {
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    margin-bottom: 50px;
+                }
+                .benefit {
+                    flex: 1 1 calc(25% - var(--gap-size));
+                }
+
+                /* Position countdown and CTA at the bottom of the first viewport */
+                .countdown-section {
+                    margin-top: auto;
+                    padding: 35px;
+                    margin-bottom: 30px;
+                }
+                .cta {
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-bottom: var(--section-spacing-desktop);
+                }
+                .action {
+                    padding: 30px;
+                }
+                .logo {
+                    max-width: 300px;
+                }
+
+                /* First fold content container */
+                .first-fold-content {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                /* Make countdown stick to bottom of first fold */
+                .fold-bottom-content {
+                    margin-top: auto;
+                }
+
+                /* then order its direct children: */
+                .first-fold-content .hero-section {
+                    order: 1;
+                }
+                .first-fold-content .benefits-container {
+                    order: 2;
+                }
+                .first-fold-content .fold-bottom-content {
+                    order: 3; /* wraps your .countdown */
+                }
+                /* finally the siblings of first-fold-content */
+                .page-content .cta {
+                    order: 4;
+                }
+                .page-content .footer {
+                    order: 5;
+                }
+            }
+
+            /* Small screens */
+            @media (max-width: 420px) {
+                :root {
+                    --fs-xl: 1.25rem;
+                    --fs-lg: 1.125rem;
+                    --fs-md: 0.875rem;
+                    --fs-sm: 0.75rem;
+                }
+
+                .logo {
+                    max-width: 200px;
+                }
+
+                .fold-bottom-content {
+                    margin-bottom: var(--section-spacing-mobile);
+                }
+
+                /* Strategic placement for mobile fold */
+                .hero-section {
+                    margin-bottom: 30px;
+                }
+
+                /* lay the summaries out in one row */
+                .hero-content {
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    gap: 10px; /* optional tweak to control spacing */
+                }
+
+                /* .hero-image {
+                    flex: 1 1 100%;
+                    max-width: 100px;
+                    margin: 0 auto;
+                } */
+                .explainer-image {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 33vh;
+                    object-fit: contain;
+                }
+
+                /* make each summary take up roughly a third of the width */
+                .summary {
+                    flex: 1 1 calc(10% - 10px);
+                    font-size: calc(var(--fs-md) * 0.9);
+                    padding: 10px;
+                }
+
+                #countdown {
+                    border: 6px solid var(--primary-color);
+                }
+
+                .cta.with-border {
+                    border: 4px solid var(--primary-color);
+                }
+
+                /* Position countdown at the natural mobile fold */
+                .countdown-section {
+                    margin-top: 10px;
+                    margin-bottom: 25px;
+                }
+
+                /* Calculate mobile fold */
+                .first-fold-content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                /* then order its direct children: */
+                .first-fold-content .hero-section {
+                    order: 1;
+                }
+                .first-fold-content .fold-bottom-content {
+                    order: 2; /* wraps your .countdown */
+                }
+                /* finally the siblings of first-fold-content */
+                .page-content .cta {
+                    order: 3;
+                }
+                .first-fold-content .benefits-container {
+                    order: 4;
+                    margin-top: 20px;
+                }
+                .page-content .footer {
+                    order: 5;
+                }
+            }
+        </style>
+
+        <script src="https://www.google.com/recaptcha/api.js?render=6LeAkngsAAAAAM9iDrOht45bWqHd6KNNGovFGV2a"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <img
+                    src="assets/digin-full.svg"
+                    class="logo"
+                    alt="DigIn Logo"
+                />
+            </header>
+
+            <section>
+                <h1 class="tagline">
+                    Want to earn readers' attention?
+                    <div class="tagline-answer">
+                        <span class="underline-hand">
+                            Reward
+                            <svg
+                                class="underline-animated"
+                                viewBox="0 0 100 10"
+                                preserveAspectRatio="none"
+                            >
+                                <path
+                                    d="M0 6 C5 2, 8 8, 15 4 C22 0, 25 9, 35 3 C45 -2, 55 8, 65 4 C75 0, 85 7, 92 2 C96 -1, 98 5, 100 3"
+                                />
+                            </svg>
+                        </span>
+                        them for it.
+                    </div>
+                </h1>
+
+                <div class="page-content">
+                    <!-- First fold content wrapper -->
+                    <div class="first-fold-content">
+                        <div class="hero-section">
+                            <div class="hero-content">
+                                <p class="summary">
+                                    <strong>We</strong> power your content with
+                                    rewards.
+                                </p>
+                                <p class="summary">
+                                    <strong>Your readers</strong> get an
+                                    engaging, gameshow-like experience
+                                </p>
+                                <p class="summary">
+                                    <strong>You</strong> keep doing what you're
+                                    doing, and watch audience attention deepen
+                                    on your content
+                                </p>
+                            </div>
+                            <div class="hero-image">
+                                <img
+                                    src="assets/image.svg"
+                                    alt="Explainer Image"
+                                    class="explainer-image"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="benefits-container">
+                            <h1 class="tagline">Why You'll Love This</h1>
+                            <div class="benefits">
+                                <div class="benefit">
+                                    <img
+                                        src="assets/prop-verified.svg"
+                                        class="benefit-icon"
+                                    />
+                                    <h3>Verified Engagement</h3>
+                                    <p>
+                                        Get assurance on the depth of audience
+                                        attention (w/ anti-bot filters)
+                                    </p>
+                                </div>
+                                <div class="benefit">
+                                    <img
+                                        src="assets/prop-puzzle.svg"
+                                        class="benefit-icon"
+                                    />
+                                    <h3>Easy to Adopt</h3>
+                                    <p>
+                                        Minimal effort to set up, no need to
+                                        change your site or publishing
+                                        arrangements
+                                    </p>
+                                </div>
+                                <div class="benefit">
+                                    <img
+                                        src="assets/prop-automated.svg"
+                                        class="benefit-icon"
+                                    />
+                                    <h3>Automated Processes</h3>
+                                    <p>
+                                        Let us handle the boring stuff for you,
+                                        so you can focus on the actual work
+                                    </p>
+                                </div>
+                                <div class="benefit">
+                                    <img
+                                        src="assets/prop-free.svg"
+                                        class="benefit-icon"
+                                    />
+                                    <h3>Free</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Position countdown at the fold -->
+                        <div class="fold-bottom-content">
+                            <a
+                                id="countdown"
+                                href="#cta"
+                                class="countdown countdown-section"
+                            >
+                                <!-- <p>
+                                    Launch in <span id="days">0</span> Days
+                                    <span id="hours">0</span> Hours
+                                </p>
+                                <p><span id="launch-date"></span></p> -->
+
+                                <span>Launching soon</span>
+                                <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    style="transform: rotate(-4deg)"
+                                >
+                                    <path
+                                        d="M12 4v14.5M12 18.5l-7-7M12 18.5l7-7"
+                                        stroke="currentColor"
+                                        stroke-width="3.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="cta" id="cta">
+                            <form id="emailForm" class="action notify-form">
+                                <p>Be the first to know:</p>
+
+                                <div class="notify-controls">
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Your email"
+                                        required
+                                    />
+
+                                    <input
+                                        type="hidden"
+                                        name="recaptcha_token"
+                                        id="recaptchaToken"
+                                    />
+
+                                    <button type="submit" class="btn">
+                                        Notify Me
+                                    </button>
+
+                                    <div
+                                        id="responseMsg"
+                                        class="response-message"
+                                        role="alert"
+                                        aria-live="polite"
+                                    ></div>
+                                </div>
+                            </form>
+
+                            <div class="action">
+                                <p>Schedule a 30-minute demo</p>
+                                <a
+                                    href="https://calendar.app.google/Ljh5NQMjPxb3EucM8"
+                                    target="_blank"
+                                    rel="noopener"
+                                    class="btn"
+                                    >Book a demo</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <div class="footer-email">
+                            Say hi at
+                            <a href="mailto:hello@digin.app"
+                                >hello@digin.app</a
+                            >
+                        </div>
+
+                        <a href="https://rjionline.org/" target="_blank">
+                            <img
+                                src="assets/reynolds_journalism_institute_logo.jpeg"
+                                alt="Reynolds Journalism Institute Logo"
+                            />
+                            <span
+                                >Supported by the Reynolds Journalism
+                                Institute</span
+                            >
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script>
+            // Countdown timer
+            const launchDate = new Date("June 16, 2025 00:00:00");
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = launchDate.getTime() - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor(
+                    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+                );
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("launch-date").innerText =
+                    launchDate.toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                    });
+
+                if (distance < 0) {
+                    document.querySelector(".countdown").innerHTML =
+                        "<p>We have launched!</p>";
+                    clearInterval(interval);
+                }
+            }
+
+            window.addEventListener("DOMContentLoaded", () => {
+                // reveal & animate in one go
+                setTimeout(() => {
+                    document
+                        .querySelector(".page-content")
+                        .classList.add("visible");
+                }, 2500);
+
+                // collapse on click, add border to CTA
+                const countdown = document.getElementById("countdown");
+                const fold = document.querySelector(".fold-bottom-content");
+                const cta = document.querySelector(".cta");
+
+                countdown.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    // collapse the fold-bottom section
+                    fold.classList.add("collapsed");
+
+                    // add border to the CTA
+                    cta.classList.add("with-border");
+
+                    // once the transition is done, hide it completely (optional)
+                    fold.addEventListener(
+                        "transitionend",
+                        function handler(evt) {
+                            if (evt.propertyName === "max-height") {
+                                fold.style.display = "none";
+                                fold.removeEventListener(
+                                    "transitionend",
+                                    handler
+                                );
+                            }
+                        }
+                    );
+                    window.scrollTo({
+                        top: cta.offsetTop,
+                        behavior: "smooth",
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            const form = document.getElementById("emailForm");
+            const responseMsg = document.getElementById("responseMsg");
+            const SITE_KEY = "6LcwL0ErAAAAAIdroWNVfq2B_K3b4B77A-roiyHp";
+            const API_ENDPOINT = "https://api-yjy6ze6diq-uc.a.run.app/signup";
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // get the email value
+                const email = form.email.value;
+
+                // run reCAPTCHA
+                grecaptcha.ready(function () {
+                    grecaptcha
+                        .execute(SITE_KEY, { action: "submit_form" })
+                        .then(function (token) {
+                            // now package up your payload
+                            const payload = {
+                                email: email,
+                                recaptcha_token: token,
+                            };
+
+                            // POST it where you want
+                            fetch(API_ENDPOINT, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify(payload),
+                            })
+                                .then((resp) => resp.json())
+                                .then((data) => {
+                                    responseMsg.textContent =
+                                        data.message ||
+                                        "Thanks! We'll let you know.";
+                                    responseMsg.classList.add("visible");
+                                    form.reset();
+                                })
+                                .catch((err) => {
+                                    // handle any network / parse errors
+                                    console.error(err);
+                                    responseMsg.textContent =
+                                        "Oops! Something went wrong.";
+                                    responseMsg.classList.add("visible");
+                                });
+                        })
+                        .catch(function (err) {
+                            console.error("reCAPTCHA failed:", err);
+                            responseMsg.textContent =
+                                "reCAPTCHA error, please try again.";
+                            responseMsg.classList.add("visible");
+                        });
+                });
+            });
+        </script>
+    </body>
+</html>

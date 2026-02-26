@@ -1,0 +1,6 @@
+functions/
+.firebaserc
+firebase.json
+firestore.rules
+firebase-debug.log
+.vscode/

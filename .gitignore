@@ -4,3 +4,4 @@ firebase.json
 firestore.rules
 firebase-debug.log
 .vscode/
+**/.DS_Store

@@ -242,109 +242,6 @@
                 -webkit-user-drag: none;
             }
 
-            /* Countdown section */
-            .countdown {
-                text-align: center;
-                font-size: var(--fs-lg);
-                margin-bottom: var(--section-spacing-mobile);
-                background: white;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-touch-callout: none;
-                padding: 25px;
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                border-top: 5px solid var(--primary-color);
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-
-            #countdown span {
-                font-weight: 900;
-                color: var(--primary-color);
-            }
-
-            #countdown {
-                /* kill any leftover dotted-grid backgrounds */
-                background-image: none !important;
-
-                /* your clean line-art frame */
-                background: #fff;
-                padding: 24px 20px;
-                margin: 30px auto;
-                max-width: 420px;
-                position: relative;
-                border: 4px solid var(--primary-color);
-                border-radius: 8px;
-                transform: rotate(-4deg);
-                box-shadow: none;
-            }
-
-            /* make the whole box clickable */
-            #countdown {
-                /* shrink it down slightly */
-                padding: 16px 18px; /* was 24px 20px */
-                max-width: 380px; /* was 420px */
-                margin: 20px auto; /* was 30px auto */
-
-                /* keep the rest as-is */
-                background: #fff;
-                color: var(--primary-color);
-                font-weight: 900;
-                position: relative;
-                border: 8px solid var(--primary-color);
-                border-radius: 12px;
-                transform: rotate(-4deg);
-                box-shadow: none;
-                display: block;
-                text-decoration: none;
-                cursor: pointer;
-
-                /* corner accents */
-                background-image: linear-gradient(
-                        var(--primary-color) 4px,
-                        transparent 0
-                    ),
-                    linear-gradient(
-                        90deg,
-                        var(--primary-color) 4px,
-                        transparent 0
-                    ),
-                    linear-gradient(var(--primary-color) 4px, transparent 0),
-                    linear-gradient(
-                        90deg,
-                        var(--primary-color) 4px,
-                        transparent 0
-                    ),
-                    linear-gradient(var(--primary-color) 4px, transparent 0),
-                    linear-gradient(
-                        90deg,
-                        var(--primary-color) 4px,
-                        transparent 0
-                    ),
-                    linear-gradient(var(--primary-color) 4px, transparent 0),
-                    linear-gradient(
-                        90deg,
-                        var(--primary-color) 4px,
-                        transparent 0
-                    );
-                background-repeat: no-repeat;
-                background-size: 4px 20px, 20px 4px, 4px 20px, 20px 4px,
-                    4px 20px, 20px 4px, 4px 20px, 20px 4px;
-                background-position: top left, top left, top right, top right,
-                    bottom right, bottom right, bottom left, bottom left;
-            }
-
-            /* hover feedback to show it's clickable */
-            #countdown:hover {
-                transform: rotate(-4deg) scale(1.015);
-            }
-
-            /* ensure your arrow/text still pick up the primary color */
-            #countdown p,
-            #countdown svg {
-                color: var(--primary-color);
-                pointer-events: none; /* so click always hits the <a> */
-            }
-
             /* link styling */
             .scroll-link {
                 color: var(--primary-color);
@@ -401,25 +298,21 @@
                 margin-bottom: 10px;
             }
 
-            #launch-date {
-                font-size: var(--fs-md);
-                font-weight: 300 !important;
-                color: #333 !important;
-            }
-
             .cta {
                 display: flex;
                 flex-direction: column;
+                align-items: stretch;
                 gap: var(--gap-size);
+                margin-top: var(--section-spacing-mobile);
                 margin-bottom: var(--section-spacing-mobile);
             }
             .action {
                 background: #fff;
                 border-radius: 12px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                border: 3px solid var(--primary-color);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
                 padding: 25px;
                 text-align: center;
-                flex: 1;
             }
             .action p {
                 margin-bottom: 15px;
@@ -490,49 +383,6 @@
                 text-decoration: none;
             }
 
-            .fold-bottom-content {
-                display: inline-flex;
-                flex-direction: row;
-                align-items: center;
-                white-space: nowrap;
-                gap: 0.4em;
-                padding: 0 10px;
-
-                /* --- remove these from the open state --- */
-                /* overflow: hidden; */
-                /* max-height: 500px; */
-                /* opacity: 1; */
-
-                /* so the container just wraps its content: */
-                overflow: visible;
-                max-height: none;
-                opacity: 1;
-
-                transition: max-height 0.5s ease, opacity 0.5s ease,
-                    margin-bottom 0.5s ease;
-            }
-
-            /* only when we add .collapsed do we clamp it down and hide it */
-            .fold-bottom-content.collapsed {
-                overflow: hidden;
-                max-height: 0;
-                opacity: 0;
-                margin-bottom: 0;
-            }
-
-            /* allow CTA to animate its border */
-            .cta {
-                transition: border 0.5s ease;
-                /* ensure it has no border by default */
-                border: none;
-            }
-
-            /* helper class to turn on the same border */
-            .cta.with-border {
-                border: 8px solid var(--primary-color);
-                transition: border 0.5s ease;
-                border-radius: 12px;
-                padding: 16px;
             }
 
             /* 1. make the form controls sit side by side */
@@ -555,6 +405,9 @@
             .notify-controls .btn {
                 white-space: nowrap; /* prevent button text wrapping */
                 margin-bottom: 0; /* align baseline with the input */
+                background: transparent;
+                color: var(--primary-color);
+                border: 2px solid var(--primary-color);
             }
 
             .response-message {
@@ -588,18 +441,11 @@
                 .benefits {
                     margin-bottom: var(--section-spacing-tablet);
                 }
-                .countdown {
-                    margin-bottom: var(--section-spacing-tablet);
-                }
                 .cta {
                     margin-bottom: var(--section-spacing-tablet);
                 }
                 .logo {
                     max-width: 250px;
-                }
-
-                .fold-bottom-content {
-                    margin-bottom: var(--section-spacing-tablet);
                 }
 
                 /* Position content strategically for tablet fold */
@@ -613,11 +459,6 @@
                 .benefit {
                     flex: 1 1 calc(50% - var(--gap-size));
                 }
-                /* Position countdown and CTA just above the fold */
-                .countdown-section {
-                    margin-top: 80px; /* Push it down toward the fold */
-                }
-
                 /* Calculate approximate fold based on tablet height */
                 .first-fold-content {
                     display: flex;
@@ -629,18 +470,14 @@
                 .first-fold-content .hero-section {
                     order: 1;
                 }
-                .first-fold-content .fold-bottom-content {
-                    order: 2; /* wraps your .countdown */
-                }
-                /* finally the siblings of first-fold-content */
                 .page-content .cta {
-                    order: 3;
+                    order: 2;
                 }
                 .first-fold-content .benefits-container {
-                    order: 4;
+                    order: 3;
                 }
                 .page-content .footer {
-                    order: 5;
+                    order: 4;
                 }
             }
 
@@ -657,10 +494,6 @@
                     flex-direction: row;
                     justify-content: space-between;
                     text-align: left;
-                }
-
-                .fold-bottom-content {
-                    margin-bottom: var(--section-spacing-desktop);
                 }
 
                 .hero-section {
@@ -685,7 +518,7 @@
                     margin-bottom: 0;
                 }
 
-                /* Position content to make countdown and CTA at the fold */
+                /* Position content at the fold */
                 .benefits {
                     flex-direction: row;
                     flex-wrap: nowrap;
@@ -695,15 +528,12 @@
                     flex: 1 1 calc(25% - var(--gap-size));
                 }
 
-                /* Position countdown and CTA at the bottom of the first viewport */
-                .countdown-section {
-                    margin-top: auto;
-                    padding: 35px;
-                    margin-bottom: 30px;
-                }
                 .cta {
-                    flex-direction: row;
-                    justify-content: center;
+                    flex-direction: column;
+                    align-items: stretch;
+                    max-width: 500px;
+                    margin-left: auto;
+                    margin-right: auto;
                     margin-bottom: var(--section-spacing-desktop);
                 }
                 .action {
@@ -719,11 +549,6 @@
                     flex-direction: column;
                 }
 
-                /* Make countdown stick to bottom of first fold */
-                .fold-bottom-content {
-                    margin-top: auto;
-                }
-
                 /* then order its direct children: */
                 .first-fold-content .hero-section {
                     order: 1;
@@ -731,15 +556,11 @@
                 .first-fold-content .benefits-container {
                     order: 2;
                 }
-                .first-fold-content .fold-bottom-content {
-                    order: 3; /* wraps your .countdown */
-                }
-                /* finally the siblings of first-fold-content */
                 .page-content .cta {
-                    order: 4;
+                    order: 3;
                 }
                 .page-content .footer {
-                    order: 5;
+                    order: 4;
                 }
             }
 
@@ -754,10 +575,6 @@
 
                 .logo {
                     max-width: 200px;
-                }
-
-                .fold-bottom-content {
-                    margin-bottom: var(--section-spacing-mobile);
                 }
 
                 /* Strategic placement for mobile fold */
@@ -792,20 +609,6 @@
                     padding: 10px;
                 }
 
-                #countdown {
-                    border: 6px solid var(--primary-color);
-                }
-
-                .cta.with-border {
-                    border: 4px solid var(--primary-color);
-                }
-
-                /* Position countdown at the natural mobile fold */
-                .countdown-section {
-                    margin-top: 10px;
-                    margin-bottom: 25px;
-                }
-
                 /* Calculate mobile fold */
                 .first-fold-content {
                     display: flex;
@@ -817,19 +620,15 @@
                 .first-fold-content .hero-section {
                     order: 1;
                 }
-                .first-fold-content .fold-bottom-content {
-                    order: 2; /* wraps your .countdown */
-                }
-                /* finally the siblings of first-fold-content */
                 .page-content .cta {
-                    order: 3;
+                    order: 2;
                 }
                 .first-fold-content .benefits-container {
-                    order: 4;
+                    order: 3;
                     margin-top: 20px;
                 }
                 .page-content .footer {
-                    order: 5;
+                    order: 4;
                 }
             }
         </style>
@@ -939,42 +738,9 @@
                             </div>
                         </div>
 
-                        <!-- Position countdown at the fold -->
-                        <div class="fold-bottom-content">
-                            <a
-                                id="countdown"
-                                href="#cta"
-                                class="countdown countdown-section"
-                            >
-                                <!-- <p>
-                                    Launch in <span id="days">0</span> Days
-                                    <span id="hours">0</span> Hours
-                                </p>
-                                <p><span id="launch-date"></span></p> -->
-
-                                <span>Launching soon</span>
-                                <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                    style="transform: rotate(-4deg)"
-                                >
-                                    <path
-                                        d="M12 4v14.5M12 18.5l-7-7M12 18.5l7-7"
-                                        stroke="currentColor"
-                                        stroke-width="3.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </a>
-                        </div>
 
                         <div class="cta" id="cta">
-                            <form id="emailForm" class="action notify-form">
+                            <form id="emailForm" class="action notify-form" style="order: 2;">
                                 <p>Be the first to know:</p>
 
                                 <div class="notify-controls">
@@ -1005,14 +771,14 @@
                                 </div>
                             </form>
 
-                            <div class="action" style="text-align: center;">
+                            <div class="action" style="text-align: center; order: 1;">
                                 <p>Curious?</p>
                                 <a
                                     class="btn"
                                     href="https://calendar.app.google/DtAuzJTwgEfUnTRg8"
                                     target="_blank"
                                     rel="noopener"
-                                    >grab a time*</a
+                                    >Grab a Time*</a
                                 >
                                 <span class="cta-note" style="display: block; margin-top: 16px; font-size: 0.85em;">*No commitment, just a 20-minute conversation.</span>
                             </div>
@@ -1043,34 +809,6 @@
         </div>
 
         <script>
-            // Countdown timer
-            const launchDate = new Date("June 16, 2025 00:00:00");
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = launchDate.getTime() - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor(
-                    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-                );
-
-                document.getElementById("days").innerText = days;
-                document.getElementById("hours").innerText = hours;
-                document.getElementById("launch-date").innerText =
-                    launchDate.toLocaleDateString("en-US", {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                    });
-
-                if (distance < 0) {
-                    document.querySelector(".countdown").innerHTML =
-                        "<p>We have launched!</p>";
-                    clearInterval(interval);
-                }
-            }
-
             window.addEventListener("DOMContentLoaded", () => {
                 // reveal & animate in one go
                 setTimeout(() => {
@@ -1078,39 +816,6 @@
                         .querySelector(".page-content")
                         .classList.add("visible");
                 }, 2500);
-
-                // collapse on click, add border to CTA
-                const countdown = document.getElementById("countdown");
-                const fold = document.querySelector(".fold-bottom-content");
-                const cta = document.querySelector(".cta");
-
-                countdown.addEventListener("click", function (e) {
-                    e.preventDefault();
-
-                    // collapse the fold-bottom section
-                    fold.classList.add("collapsed");
-
-                    // add border to the CTA
-                    cta.classList.add("with-border");
-
-                    // once the transition is done, hide it completely (optional)
-                    fold.addEventListener(
-                        "transitionend",
-                        function handler(evt) {
-                            if (evt.propertyName === "max-height") {
-                                fold.style.display = "none";
-                                fold.removeEventListener(
-                                    "transitionend",
-                                    handler
-                                );
-                            }
-                        }
-                    );
-                    window.scrollTo({
-                        top: cta.offsetTop,
-                        behavior: "smooth",
-                    });
-                });
             });
         </script>
 

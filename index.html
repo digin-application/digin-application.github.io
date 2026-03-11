@@ -383,12 +383,10 @@
                 text-decoration: none;
             }
 
-            }
-
             /* 1. make the form controls sit side by side */
             .notify-controls {
                 display: flex;
-                gap: 10px; /* space between input & button */
+                gap: 8px 10px; /* row-gap / column-gap */
                 align-items: center; /* vertical center */
                 flex-wrap: wrap; /* wrap on very narrow screens */
                 justify-content: center; /* center on larger widths */
@@ -399,6 +397,10 @@
                 flex: 1; /* take up remaining space */
                 margin-bottom: 0; /* remove the old bottom margin */
                 width: auto; /* override fixed-width */
+                border-width: 2px;
+                box-sizing: border-box;
+                font-size: var(--fs-md);
+                line-height: 1.5;
             }
 
             /* 3. tighten button spacing if needed */
@@ -701,8 +703,7 @@
                                     />
                                     <h3>Verified Engagement</h3>
                                     <p>
-                                        Get assurance on the depth of audience
-                                        attention (w/ anti-bot filters)
+                                        Get high-quality, bot-free engagement on your content
                                     </p>
                                 </div>
                                 <div class="benefit">
@@ -712,9 +713,7 @@
                                     />
                                     <h3>Easy to Adopt</h3>
                                     <p>
-                                        Minimal effort to set up, no need to
-                                        change your site or publishing
-                                        arrangements
+                                        No need to change your site or publishing setup
                                     </p>
                                 </div>
                                 <div class="benefit">
@@ -724,8 +723,8 @@
                                     />
                                     <h3>Automated Processes</h3>
                                     <p>
-                                        Let us handle the boring stuff for you,
-                                        so you can focus on the actual work
+                                        Let us handle the boring stuff,
+                                        so you can focus on what you love
                                     </p>
                                 </div>
                                 <div class="benefit">
@@ -733,7 +732,10 @@
                                         src="assets/prop-free.svg"
                                         class="benefit-icon"
                                     />
-                                    <h3>Free</h3>
+                                    <h3>Free*</h3>
+                                    <p>
+                                        <sup>*</sup>No ads, either. They stink.
+                                    </p>
                                 </div>
                             </div>
                         </div>

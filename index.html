@@ -7,7 +7,7 @@
             src="https://www.googletagmanager.com/gtag/js?id=G-FQB3EBQHKY"
         ></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
+            globalThis.dataLayer = globalThis.dataLayer || [];
             function gtag() {
                 dataLayer.push(arguments);
             }
@@ -142,13 +142,6 @@
                     transform: translateY(0);
                 }
             }
-
-            /* @keyframes fadeInUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            } */
 
             @keyframes fadeIn {
                 to {
@@ -592,11 +585,11 @@
                     gap: 10px; /* optional tweak to control spacing */
                 }
 
-                /* .hero-image {
+                .hero-image {
                     flex: 1 1 100%;
                     max-width: 100px;
                     margin: 0 auto;
-                } */
+                }
                 .explainer-image {
                     width: 100%;
                     height: 100%;
@@ -686,8 +679,8 @@
                             </div>
                             <div class="hero-image">
                                 <img
-                                    src="assets/image.svg"
-                                    alt="Explainer Image"
+                                    src="assets/intuitive-explainer.svg"
+                                    alt="Explainer"
                                     class="explainer-image"
                                 />
                             </div>
@@ -700,6 +693,7 @@
                                     <img
                                         src="assets/prop-verified.svg"
                                         class="benefit-icon"
+                                        alt="Verified engagement icon"
                                     />
                                     <h3>Verified Engagement</h3>
                                     <p>
@@ -710,6 +704,7 @@
                                     <img
                                         src="assets/prop-puzzle.svg"
                                         class="benefit-icon"
+                                        alt="Easy to adopt icon"
                                     />
                                     <h3>Easy to Adopt</h3>
                                     <p>
@@ -720,6 +715,7 @@
                                     <img
                                         src="assets/prop-automated.svg"
                                         class="benefit-icon"
+                                        alt="Automated processes icon"
                                     />
                                     <h3>Automated Processes</h3>
                                     <p>
@@ -731,6 +727,7 @@
                                     <img
                                         src="assets/prop-free.svg"
                                         class="benefit-icon"
+                                        alt="Free icon"
                                     />
                                     <h3>Free*</h3>
                                     <p>
@@ -811,7 +808,7 @@
         </div>
 
         <script>
-            window.addEventListener("DOMContentLoaded", () => {
+            globalThis.addEventListener("DOMContentLoaded", () => {
                 // reveal & animate in one go
                 setTimeout(() => {
                     document

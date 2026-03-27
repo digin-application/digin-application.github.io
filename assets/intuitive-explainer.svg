@@ -1,0 +1,2628 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="212mm"
+   height="238mm"
+   viewBox="-100 -30 800 900"
+   version="1.1"
+   id="svg240"
+   sodipodi:docname="intuitive-explainer.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview240"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.4997601"
+     inkscape:cx="78.679248"
+     inkscape:cy="219.36841"
+     inkscape:window-width="1800"
+     inkscape:window-height="1101"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg240" />
+  <defs
+     id="defs4">
+    <!-- Mask to dim the glow inside the card -->
+    <mask
+       id="glowMask">
+      <rect
+         width="100%"
+         height="100%"
+         fill="white"
+         id="rect1" />
+      <rect
+         x="175"
+         y="243"
+         width="253"
+         height="180"
+         rx="12"
+         fill="#333"
+         id="rect2" />
+    </mask>
+    <!-- Radial gradient for soft-edged glow -->
+    <radialGradient
+       id="cardGlowGrad"
+       cx="50%"
+       cy="50%"
+       r="50%">
+      <stop
+         offset="40%"
+         stop-color="#ffca28"
+         stop-opacity="0.2"
+         id="stop2" />
+      <stop
+         offset="70%"
+         stop-color="#ffca28"
+         stop-opacity="0.08"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#ffca28"
+         stop-opacity="0"
+         id="stop4" />
+    </radialGradient>
+    <style
+       id="style4">
+      .wire { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .p { stroke: #846eff; }
+      .g { stroke: #e6a800; }
+      .d { stroke: #333; }
+      .gr { stroke: #aaa; }
+
+      @keyframes pulse {
+        0% { transform: scale(1.35) rotate(-10deg); opacity: 0.9; }
+        25% { transform: scale(1.65) rotate(8deg); opacity: 1; }
+        50% { transform: scale(1.4) rotate(-5deg); opacity: 0.95; }
+        75% { transform: scale(1.6) rotate(12deg); opacity: 1; }
+        100% { transform: scale(1.35) rotate(-10deg); opacity: 0.9; }
+      }
+      .p1 { animation: pulse 1.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .p2 { animation: pulse 2.1s ease-in-out infinite 0.6s; transform-box: fill-box; transform-origin: center; }
+      .p3 { animation: pulse 1.6s ease-in-out infinite 1.2s; transform-box: fill-box; transform-origin: center; }
+
+      @keyframes burst {
+        0%, 100% { opacity: 0.5; transform: scale(1.2); }
+        50% { opacity: 1; transform: scale(1.5); }
+      }
+      .b { animation: burst 1.1s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+      .b1 { animation-delay: 0.15s; }
+      .b2 { animation-delay: 0.3s; }
+      .b3 { animation-delay: 0.45s; }
+      .b4 { animation-delay: 0.6s; }
+      .b5 { animation-delay: 0.75s; }
+      .b6 { animation-delay: 0.9s; }
+
+      @keyframes transmit {
+        from { stroke-dashoffset: 30; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes sway1 {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-7px) rotate(-1deg); }
+        50% { transform: translateY(-1px) rotate(0.5deg); }
+        75% { transform: translateY(-4px) rotate(-0.3deg); }
+      }
+      @keyframes sway2 {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        30% { transform: translateY(-6px) rotate(0.8deg); }
+        60% { transform: translateY(-2px) rotate(-0.5deg); }
+        80% { transform: translateY(-5px) rotate(0.3deg); }
+      }
+      @keyframes sway3 {
+        0%, 100% { transform: translateY(-1px) rotate(0.3deg); }
+        35% { transform: translateY(-8px) rotate(-0.7deg); }
+        65% { transform: translateY(-2px) rotate(0.4deg); }
+        85% { transform: translateY(-5px) rotate(-0.2deg); }
+      }
+      @keyframes swayMed {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        30% { transform: translateY(-4px) rotate(-0.5deg); }
+        55% { transform: translateY(-1px) rotate(0.3deg); }
+        80% { transform: translateY(-3px) rotate(-0.2deg); }
+      }
+      @keyframes swaySmall {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        30% { transform: translateY(-6px) rotate(-0.6deg); }
+        55% { transform: translateY(-1px) rotate(0.3deg); }
+        80% { transform: translateY(-4px) rotate(-0.3deg); }
+      }
+
+      @keyframes haloGlow {
+        0%, 100% { opacity: 0.04; r: 90; }
+        50% { opacity: 0.09; r: 98; }
+      }
+      @keyframes haloGlow2 {
+        0%, 100% { opacity: 0.03; r: 110; }
+        50% { opacity: 0.06; r: 120; }
+      }
+      @keyframes haloGlow3 {
+        0%, 100% { opacity: 0.015; r: 135; }
+        50% { opacity: 0.04; r: 145; }
+      }
+      .halo1 { animation: haloGlow 3s ease-in-out infinite; }
+      .halo2 { animation: haloGlow2 3s ease-in-out infinite 0.5s; }
+      .halo3 { animation: haloGlow3 3s ease-in-out infinite 1s; }
+
+      @keyframes cardGlow {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+      }
+      @keyframes cardGlowOuter {
+        0%, 100% { opacity: 0.06; }
+        50% { opacity: 0.22; }
+      }
+      @keyframes cardGlowWide {
+        0%, 100% { opacity: 0.03; }
+        50% { opacity: 0.12; }
+      }
+      .cardGlow { animation: cardGlow 3s ease-in-out infinite 0.5s; }
+      .cardGlowOuter { animation: cardGlowOuter 3s ease-in-out infinite 0.3s; }
+      .cardGlowWide { animation: cardGlowWide 3s ease-in-out infinite 0.1s; }
+    </style>
+  </defs>
+  <!-- ======================================== -->
+  <!--  GIFT WITH HALO — top center             -->
+  <!-- ======================================== -->
+  <!-- (halo removed) -->
+  <!-- ======================================== -->
+  <!--  ATTENTION LINES — crowd through card    -->
+  <!--  to gift. Solid purple below, solid gold -->
+  <!--  above card as they reach the reward     -->
+  <!-- ======================================== -->
+  <!-- Solid attention lines -->
+  <g
+     opacity="0.35"
+     id="g17">
+    <line
+       x1="38"
+       y1="545"
+       x2="265"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line4" />
+    <line
+       x1="265"
+       y1="240"
+       x2="290"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line5" />
+    <line
+       x1="122"
+       y1="530"
+       x2="275"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line6" />
+    <line
+       x1="275"
+       y1="240"
+       x2="293"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line7" />
+    <line
+       x1="231"
+       y1="535"
+       x2="288"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line8" />
+    <line
+       x1="288"
+       y1="240"
+       x2="297"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line9" />
+    <line
+       x1="340"
+       y1="525"
+       x2="301"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="3"
+       stroke-linecap="round"
+       id="line10" />
+    <line
+       x1="301"
+       y1="240"
+       x2="301"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="3"
+       stroke-linecap="round"
+       id="line11" />
+    <line
+       x1="438"
+       y1="533"
+       x2="314"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line12" />
+    <line
+       x1="314"
+       y1="240"
+       x2="305"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line13" />
+    <line
+       x1="542"
+       y1="540"
+       x2="327"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line14" />
+    <line
+       x1="327"
+       y1="240"
+       x2="309"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line15" />
+    <line
+       x1="582"
+       y1="548"
+       x2="337"
+       y2="240"
+       stroke="#846eff"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line16" />
+    <line
+       x1="337"
+       y1="240"
+       x2="313"
+       y2="85"
+       stroke="#ffca28"
+       stroke-width="2.5"
+       stroke-linecap="round"
+       id="line17" />
+  </g>
+  <!-- Animated energy pulses flowing up toward gift -->
+  <g
+     opacity="0.9"
+     stroke-linecap="round"
+     stroke-dasharray="11 19"
+     id="g31">
+    <line
+       x1="38"
+       y1="545"
+       x2="265"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.3s linear infinite"
+       id="line18" />
+    <line
+       x1="265"
+       y1="240"
+       x2="290"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 1.0s linear infinite 0.5s"
+       id="line19" />
+    <line
+       x1="122"
+       y1="530"
+       x2="275"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.1s linear infinite 0.2s"
+       id="line20" />
+    <line
+       x1="275"
+       y1="240"
+       x2="293"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 0.9s linear infinite 0.7s"
+       id="line21" />
+    <line
+       x1="231"
+       y1="535"
+       x2="288"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.2s linear infinite 0.4s"
+       id="line22" />
+    <line
+       x1="288"
+       y1="240"
+       x2="297"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 1.0s linear infinite 0.8s"
+       id="line23" />
+    <line
+       x1="340"
+       y1="525"
+       x2="301"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="4"
+       style="animation: transmit 1.0s linear infinite 0.1s"
+       id="line24" />
+    <line
+       x1="301"
+       y1="240"
+       x2="301"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="4"
+       style="animation: transmit 0.8s linear infinite 0.5s"
+       id="line25" />
+    <line
+       x1="438"
+       y1="533"
+       x2="314"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.4s linear infinite 0.3s"
+       id="line26" />
+    <line
+       x1="314"
+       y1="240"
+       x2="305"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 1.1s linear infinite 0.6s"
+       id="line27" />
+    <line
+       x1="542"
+       y1="540"
+       x2="327"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.2s linear infinite 0.5s"
+       id="line28" />
+    <line
+       x1="327"
+       y1="240"
+       x2="309"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 0.9s linear infinite 0.9s"
+       id="line29" />
+    <line
+       x1="582"
+       y1="548"
+       x2="337"
+       y2="240"
+       stroke="#a78bff"
+       stroke-width="3.5"
+       style="animation: transmit 1.3s linear infinite 0.1s"
+       id="line30" />
+    <line
+       x1="337"
+       y1="240"
+       x2="313"
+       y2="85"
+       stroke="#ffe066"
+       stroke-width="3.5"
+       style="animation: transmit 1.0s linear infinite 0.4s"
+       id="line31" />
+  </g>
+  <!-- Gift box — on top of line endings -->
+  <rect
+     x="262"
+     y="27"
+     width="76"
+     height="52"
+     rx="5"
+     id="rect31"
+     style="fill:none;stroke:#e6a800;stroke-width:7;stroke-linecap:round;stroke-linejoin:round" />
+  <rect
+     x="257"
+     y="6.9225702"
+     width="86"
+     height="20"
+     rx="5"
+     id="rect32"
+     style="fill:none;stroke:#e6a800;stroke-width:7;stroke-linecap:round;stroke-linejoin:round" />
+  <line
+     x1="300"
+     y1="14"
+     x2="300"
+     y2="79"
+     id="line32"
+     style="fill:none;stroke:#e6a800;stroke-width:7;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="M 300,6.9225704 Q 280,-13.07743 286,-13.07743 q 14,0 14,20.0000004"
+     id="path32"
+     style="fill:none;stroke:#e6a800;stroke-width:7;stroke-linecap:round;stroke-linejoin:round" />
+  <path
+     d="m 300,6.9225704 q 20,-20.0000004 14,-20.0000004 -14,0 -14,20.0000004"
+     id="path33"
+     style="fill:none;stroke:#e6a800;stroke-width:7;stroke-linecap:round;stroke-linejoin:round" />
+  <!-- ======================================== -->
+  <!--  CONTENT CARD — lit up by attention      -->
+  <!-- ======================================== -->
+  <!-- Smooth purple glow around card — wide, pulsating -->
+  <g
+     mask="url(#glowMask)"
+     class="cardGlow"
+     id="g46">
+    <rect
+       x="105"
+       y="173"
+       width="393"
+       height="320"
+       rx="52"
+       fill="#846eff"
+       opacity="0.02"
+       id="rect33" />
+    <rect
+       x="113"
+       y="181"
+       width="377"
+       height="304"
+       rx="46"
+       fill="#846eff"
+       opacity="0.03"
+       id="rect34" />
+    <rect
+       x="120"
+       y="188"
+       width="363"
+       height="290"
+       rx="41"
+       fill="#846eff"
+       opacity="0.045"
+       id="rect35" />
+    <rect
+       x="127"
+       y="195"
+       width="349"
+       height="276"
+       rx="38"
+       fill="#846eff"
+       opacity="0.06"
+       id="rect36" />
+    <rect
+       x="134"
+       y="202"
+       width="335"
+       height="262"
+       rx="34"
+       fill="#846eff"
+       opacity="0.075"
+       id="rect37" />
+    <rect
+       x="140"
+       y="208"
+       width="323"
+       height="250"
+       rx="30"
+       fill="#846eff"
+       opacity="0.09"
+       id="rect38" />
+    <rect
+       x="146"
+       y="214"
+       width="311"
+       height="238"
+       rx="26"
+       fill="#846eff"
+       opacity="0.11"
+       id="rect39" />
+    <rect
+       x="150"
+       y="218"
+       width="303"
+       height="230"
+       rx="24"
+       fill="#846eff"
+       opacity="0.13"
+       id="rect40" />
+    <rect
+       x="154"
+       y="222"
+       width="295"
+       height="222"
+       rx="22"
+       fill="#846eff"
+       opacity="0.16"
+       id="rect41" />
+    <rect
+       x="158"
+       y="226"
+       width="287"
+       height="214"
+       rx="20"
+       fill="#846eff"
+       opacity="0.19"
+       id="rect42" />
+    <rect
+       x="161"
+       y="229"
+       width="281"
+       height="208"
+       rx="18"
+       fill="#846eff"
+       opacity="0.22"
+       id="rect43" />
+    <rect
+       x="164"
+       y="232"
+       width="275"
+       height="202"
+       rx="16"
+       fill="#846eff"
+       opacity="0.25"
+       id="rect44" />
+    <rect
+       x="167"
+       y="235"
+       width="269"
+       height="196"
+       rx="14"
+       fill="#846eff"
+       opacity="0.28"
+       id="rect45" />
+    <rect
+       x="170"
+       y="238"
+       width="263"
+       height="190"
+       rx="13"
+       fill="#846eff"
+       opacity="0.32"
+       id="rect46" />
+  </g>
+  <!-- "Your stuff" curly arrow annotation -->
+  <g
+     id="g242"
+     transform="translate(4.509733,5.0434484)">
+    <path
+       d="m -40.711688,249.59962 c 12.973388,-14.95631 32.4922319,-8.32195 45.311926,2.7981 10.683078,9.2667 5.831241,25.65144 18.515327,20.74084 11.544958,-6.83476 4.426925,-22.36967 18.675048,-19.37117 14.248124,2.99849 9.396287,19.38323 22.865405,11.40935 9.54998,-6.69313 4.7102,-18.37972 16.892526,-16.23708 12.182327,2.14265 21.224516,16.53843 39.179326,15.2637 6.98242,-0.49573 10.04571,0.2893 10.11653,1.28679"
+       fill="none"
+       stroke="#613dee"
+       stroke-width="4.5"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="path46" />
+    <g
+       id="g241"
+       transform="rotate(-4.0287012,117.28438,256.22706)">
+      <line
+         x1="134.40715"
+         y1="265.18613"
+         x2="118.71695"
+         y2="252.78383"
+         stroke="#613dee"
+         stroke-width="4.5"
+         stroke-linecap="round"
+         id="line46" />
+      <line
+         x1="134.46298"
+         y1="265.45947"
+         x2="116.99676"
+         y2="274.78314"
+         stroke="#613dee"
+         stroke-width="4.5"
+         stroke-linecap="round"
+         id="line47" />
+    </g>
+  </g>
+  <path
+     style="font-size:40.0491px;font-family:Kronika;-inkscape-font-specification:Kronika;fill:#613dee;stroke-width:1.36459"
+     d="m -87.392028,160.20526 -0.606212,11.49847 q 0.01955,-0.27377 0.01955,3.10928 0,0.41066 0.07822,1.23198 0.07822,0.80177 0.07822,1.21243 0,0.89954 -0.586656,1.54486 -0.05867,0.93865 -0.332439,3.08972 -0.332439,2.85507 -2.561735,5.26036 -2.463958,2.67907 -5.710125,2.75729 -3.226612,0.0782 -5.925232,-0.97777 -3.48083,-1.36886 -4.61503,-4.3217 -0.23467,-0.62577 -0.176,-1.21242 0.13689,-1.17332 1.19287,-1.93597 0.9582,-0.70399 2.19018,-0.72354 1.36887,-0.0391 2.26841,1.29064 0.31288,0.89954 1.27109,2.50307 0.66488,0.72354 1.740413,0.72354 0.469326,0 1.349311,-0.31288 0.89954,-0.31288 1.329755,-0.31288 1.153758,-0.0196 1.72086,-2.77685 0.05867,-0.31288 0.254218,-3.24616 -2.307517,0.62576 -4.732364,0.62576 -2.972393,0 -5.006133,-1.09509 -2.46396,-1.32975 -2.93329,-4.00882 -0.84087,-4.8497 -0.84087,-8.74119 0,-2.50306 0.64532,-5.8079 0.43021,-2.20974 2.91373,-2.20974 1.19287,0 2.0533,0.64533 0.9582,0.70398 0.9582,1.8773 0,0.91909 -0.31288,2.75728 -0.31288,1.81864 -0.31288,2.73773 0,5.53413 0.82131,8.23275 1.11465,0.44977 2.014193,0.44977 2.24885,0 4.947471,-0.5671 l 0.234663,-6.7661 q 0.117331,-3.20706 0.41066,-6.92255 0.175997,-2.32708 2.933283,-2.32708 2.327072,0 2.913729,1.77953 0.332438,0.44977 0.312883,0.93865 z m 23.231606,8.81941 q 0,3.69593 -2.014188,6.51189 -2.679066,3.71549 -7.704758,3.89149 -3.950156,0.13688 -7.059436,-2.2293 -3.422165,-2.60084 -3.969711,-7.13766 -0.09778,-0.70398 -0.09778,-1.54486 0,-3.44172 1.975078,-6.25767 2.874618,-4.08704 8.741185,-4.32171 4.321704,-0.17599 7.137657,2.85507 2.542179,2.71817 2.933283,6.90299 0.05867,0.70399 0.05867,1.32976 z m -5.69057,0.25421 q -0.293329,-6.31633 -4.243484,-6.17945 -2.639955,0.0782 -3.96971,2.34663 -0.938651,1.62308 -0.938651,3.57861 0,0.41066 0.03911,0.82132 0.195553,1.95552 1.388421,3.20705 1.290645,1.3102 3.226612,1.23198 2.092409,-0.0978 3.343944,-1.4862 1.251534,-1.40797 1.153758,-3.51994 z m 28.394186,-9.48428 q 0,1.19287 -0.215107,3.55905 -0.195552,2.36618 -0.195552,3.55905 0,2.17063 0.07822,5.18214 0.117331,3.7546 0.117331,5.16258 0,1.15375 -0.958206,1.85774 -0.879985,0.66488 -2.053299,0.66488 -0.86043,0 -1.564418,-1.27109 -0.254217,-0.48888 -1.055982,-1.95552 -0.430215,1.09509 -2.444403,1.93597 -1.779525,0.74309 -3.246167,0.74309 -5.983898,0 -7.782979,-4.55636 -0.997317,-2.50307 -0.997317,-9.28874 0,-3.38305 0.391105,-4.94747 0.762654,-3.07017 3.167946,-3.07017 1.212424,0 2.072854,0.64533 0.938651,0.68443 0.938651,1.8773 0,0.91909 -0.312884,2.75728 -0.312883,1.81864 -0.312883,2.73773 0,5.53413 0.821319,8.23275 1.173313,0.44977 2.014188,0.44977 1.681749,0 2.6204,-0.33243 1.447087,-0.50844 2.6204,-2.0533 l -0.05867,-4.94747 q 0,-0.39111 -0.03911,-1.40798 -0.01956,-0.87999 -0.01956,-1.40798 0,-6.43367 3.402609,-6.43367 1.095092,0 1.994633,0.58666 1.016871,0.66488 1.016871,1.72086 z m 19.379226,0.99732 q 0,2.19018 -2.346627,2.19018 -0.919096,0 -2.111965,-0.41066 -4.184818,0.60621 -5.749235,2.85507 -1.23198,1.74041 -1.23198,5.27991 0,1.03642 0.09778,3.12883 0.117331,2.07286 0.117331,3.10928 0,1.21243 -0.89954,1.91641 -0.82132,0.66488 -2.072854,0.66488 -1.192869,0 -1.975078,-0.70399 -0.782209,-0.68443 -0.782209,-1.8773 v -12.98467 q 0,-0.33244 -0.01956,-0.9582 -0.01955,-0.64532 -0.01955,-0.97776 0,-4.06749 2.913728,-4.06749 1.583973,0 2.248851,3.3635 0.586657,-1.83819 3.695937,-2.87462 2.522624,-0.84087 5.338576,-0.84087 1.212424,0 2.033744,0.99731 0.762654,0.93865 0.762654,2.19019 z"
+     id="text47"
+     transform="rotate(-5)"
+     aria-label="your" />
+  <path
+     style="font-size:40.0491px;font-family:Kronika;-inkscape-font-specification:Kronika;fill:#613dee;stroke-width:1.36459"
+     d="m -76.754929,220.4808 q 0,3.42216 -3.44172,5.39724 -2.933283,1.68175 -6.805218,1.68175 -2.268406,0 -5.319021,-1.54486 -3.402609,-1.72086 -3.402609,-3.59817 0,-0.80176 0.684433,-1.56441 0.684433,-0.76266 1.486197,-0.76266 0.41066,0 0.645323,0.31289 0.469325,0.60621 2.346626,1.42753 2.014189,0.87998 3.402609,0.87998 1.23198,0 2.6204,-0.50843 1.759971,-0.64533 1.759971,-1.68175 0,-0.97776 -3.050615,-1.91641 -4.380371,-1.32976 -5.631905,-2.01419 -3.050615,-1.64264 -3.050615,-4.38037 0,-3.98927 3.304833,-5.57324 2.346627,-1.11465 6.863884,-1.11465 7.176767,0 7.176767,3.03106 0,1.54486 -2.033743,2.48351 -0.312884,0.13689 -0.801765,0.0391 -0.215107,-0.0587 -0.703988,-0.15644 h -0.723543 q -0.273773,-0.0587 -0.371549,-0.46932 -1.486197,-0.31289 -3.383054,-0.5671 -0.293328,-0.0391 -0.762654,-0.0391 -2.855062,0 -2.855062,1.89685 0,0.15644 0.05866,0.44977 0.09778,0.72355 3.246167,1.74042 4.106598,1.32975 5.690571,2.24885 3.050615,1.75997 3.050615,4.30215 z m 15.781066,-14.43176 q -0.03911,1.21243 -0.938651,1.93597 -0.89954,0.70399 -2.111964,0.64532 -0.938651,-0.0391 -2.13152,-0.0782 -0.723543,-0.0196 -2.053298,0.13689 0.09778,6.66833 -0.05867,12.28068 0,0.52799 -0.03911,2.07285 -0.156442,4.4977 -3.285278,4.47815 -1.114648,0 -1.994633,-0.64532 -0.977761,-0.72355 -0.89954,-1.79909 0.156442,-1.79908 0.273773,-4.22392 0.234663,-4.00882 0.09778,-17.16949 l -0.03911,-4.16526 q -0.01956,-1.11465 0.93865,-1.85775 0.899541,-0.68443 2.17063,-0.66488 3.011505,0.0196 3.011505,4.14571 0,0.43022 -0.01955,0.7431 l -0.09778,1.60353 q 1.505753,-0.15644 2.190186,-0.15644 2.444403,0.0196 3.343943,0.31288 1.701304,0.5671 1.642639,2.40529 z m 22.156068,11.14648 q 0,3.69594 -2.014189,6.51189 -2.679065,3.71549 -7.704758,3.89149 -3.950155,0.13689 -7.059436,-2.2293 -3.422164,-2.60084 -3.96971,-7.13765 -0.09778,-0.70399 -0.09778,-1.54487 0,-3.44172 1.975077,-6.25767 2.874618,-4.08704 8.741185,-4.3217 4.321705,-0.176 7.137657,2.85506 2.542179,2.71818 2.933284,6.90299 0.05867,0.70399 0.05867,1.32976 z m -5.690571,0.25422 q -0.293328,-6.31634 -4.243483,-6.17945 -2.639956,0.0782 -3.969711,2.34662 -0.938651,1.62309 -0.938651,3.57861 0,0.41066 0.03911,0.82132 0.195552,1.95552 1.388421,3.20706 1.290645,1.3102 3.226612,1.23197 2.092409,-0.0978 3.343943,-1.48619 1.251534,-1.40798 1.153758,-3.51994 z m 25.069797,-8.48697 q 0,2.19019 -2.346627,2.19019 -0.919096,0 -2.111964,-0.41066 -4.184818,0.60621 -5.749236,2.85506 -1.231979,1.74041 -1.231979,5.27991 0,1.03643 0.09778,3.12883 0.117331,2.07286 0.117331,3.10929 0,1.21242 -0.89954,1.91641 -0.821319,0.66487 -2.072854,0.66487 -1.192868,0 -1.975077,-0.70398 -0.782209,-0.68444 -0.782209,-1.8773 v -12.98467 q 0,-0.33244 -0.01956,-0.95821 -0.01956,-0.64532 -0.01956,-0.97776 0,-4.06749 2.913729,-4.06749 1.583973,0 2.24885,3.3635 0.586657,-1.83819 3.695938,-2.87462 2.522624,-0.84087 5.338576,-0.84087 1.212424,0 2.033743,0.99731 0.762654,0.93866 0.762654,2.19019 z m 21.8822956,-0.58666 -0.6062119,11.49847 q 0.019555,-0.27377 0.019555,3.10929 0,0.41066 0.078221,1.23197 0.078221,0.80177 0.078221,1.21243 0,0.89954 -0.5866568,1.54486 -0.058666,0.93865 -0.3324388,3.08973 -0.33243877,2.85506 -2.5617343,5.26035 -2.4639583,2.67907 -5.7101255,2.75729 -3.2266123,0.0782 -5.9252333,-0.97776 -3.480829,-1.36887 -4.615032,-4.32171 -0.234663,-0.62576 -0.175997,-1.21242 0.136886,-1.17331 1.192868,-1.93597 0.958206,-0.70399 2.190185,-0.72354 1.368866,-0.0391 2.268406,1.29064 0.312884,0.89954 1.27109,2.50307 0.664877,0.72355 1.7404148,0.72355 0.4693254,0 1.3493105,-0.31289 0.8995403,-0.31288 1.3297552,-0.31288 1.1537582,-0.0196 1.7208597,-2.77684 0.058666,-0.31289 0.2542179,-3.24617 -2.3075164,0.62577 -4.7323642,0.62577 -2.9723939,0 -5.0061369,-1.0951 -2.463959,-1.32975 -2.933284,-4.00882 -0.840875,-4.84969 -0.840875,-8.74118 0,-2.50307 0.645323,-5.8079 0.430215,-2.20974 2.913728,-2.20974 1.192869,0 2.053299,0.64532 0.958206,0.70399 0.958206,1.8773 0,0.9191 -0.312884,2.75729 -0.312884,1.81863 -0.312884,2.73773 0,5.53413 0.82132,8.23275 1.114648,0.44977 2.0141879,0.44977 2.2488508,0 4.9474717,-0.5671 l 0.2346627,-6.76611 q 0.1173313,-3.20706 0.4106597,-6.92255 0.175997,-2.32707 2.93328362,-2.32707 2.32707168,0 2.91372838,1.77952 0.3324388,0.44977 0.3128836,0.93865 z"
+     id="text47-1"
+     transform="rotate(-5)"
+     aria-label="story" />
+  <!-- Card outline -->
+  <g
+     class="wire d"
+     stroke-width="3"
+     id="g48">
+    <rect
+       x="175"
+       y="243"
+       width="253"
+       height="180"
+       rx="12"
+       id="rect47" />
+  </g>
+  <!-- Top accent bar — colored header strip -->
+  <rect
+     x="175"
+     y="243"
+     width="253"
+     height="28"
+     rx="12"
+     fill="#846eff"
+     opacity="0.55"
+     stroke="none"
+     id="rect48" />
+  <rect
+     x="175"
+     y="258"
+     width="253"
+     height="13"
+     fill="#846eff"
+     opacity="0.55"
+     stroke="none"
+     id="rect49" />
+  <!-- Dots in header (window controls feel) -->
+  <circle
+     cx="195"
+     cy="257"
+     r="4"
+     fill="#fff"
+     opacity="0.5"
+     id="circle49" />
+  <circle
+     cx="210"
+     cy="257"
+     r="4"
+     fill="#fff"
+     opacity="0.5"
+     id="circle50" />
+  <circle
+     cx="225"
+     cy="257"
+     r="4"
+     fill="#fff"
+     opacity="0.5"
+     id="circle51" />
+  <!-- Headline -->
+  <rect
+     x="200"
+     y="285"
+     width="170"
+     height="10"
+     rx="5"
+     stroke="none"
+     fill="#444"
+     opacity="0.75"
+     id="rect51" />
+  <rect
+     x="200"
+     y="301"
+     width="110"
+     height="7"
+     rx="3.5"
+     stroke="none"
+     fill="#999"
+     opacity="0.4"
+     id="rect52" />
+  <!-- Body text bars -->
+  <rect
+     x="200"
+     y="322"
+     width="195"
+     height="7"
+     rx="3.5"
+     stroke="none"
+     fill="#bbb"
+     opacity="0.5"
+     id="rect53" />
+  <rect
+     x="200"
+     y="337"
+     width="180"
+     height="7"
+     rx="3.5"
+     stroke="none"
+     fill="#bbb"
+     opacity="0.5"
+     id="rect54" />
+  <rect
+     x="200"
+     y="352"
+     width="190"
+     height="7"
+     rx="3.5"
+     stroke="none"
+     fill="#bbb"
+     opacity="0.5"
+     id="rect55" />
+  <!-- Inline image placeholder — with landscape silhouette -->
+  <rect
+     x="200"
+     y="370"
+     width="210"
+     height="40"
+     rx="5"
+     stroke="none"
+     fill="#e8e0ff"
+     opacity="0.5"
+     id="rect56" />
+  <polygon
+     points="215,402 235,378 255,395 275,380 310,400 200,402"
+     fill="#846eff"
+     opacity="0.15"
+     stroke="none"
+     id="polygon56" />
+  <circle
+     cx="380"
+     cy="382"
+     r="7"
+     fill="#846eff"
+     opacity="0.12"
+     stroke="none"
+     id="circle56" />
+  <!-- Stars and hearts alternating around the content card — no overlaps -->
+  <!-- Top-left: star -->
+  <g
+     class="p1"
+     id="g57">
+    <polygon
+       points="93,215 98,225 108,225 100,230 102,239 93,234 84,239 86,230 78,225 88,225"
+       class="wire g"
+       stroke-width="2.5"
+       id="polygon57" />
+  </g>
+  <!-- Top-center: heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g58">
+    <path
+       d="M248,195 C244,189 233,189 233,196 C233,203 248,213 248,213 C248,213 263,203 263,196 C263,189 253,189 248,195 Z"
+       class="b b5"
+       id="path57" />
+  </g>
+  <!-- Top-right: star -->
+  <g
+     class="p3"
+     id="g59">
+    <polygon
+       points="510,218 515,228 525,228 517,233 520,242 510,237 501,242 504,233 496,228 506,228"
+       class="wire g"
+       stroke-width="2.5"
+       id="polygon58" />
+  </g>
+  <!-- Left-upper: heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g60">
+    <path
+       d="M76,290 C71,284 61,284 61,291 C61,298 76,308 76,308 C76,308 91,298 91,291 C91,284 80,284 76,290 Z"
+       class="b b1"
+       id="path59" />
+  </g>
+  <!-- Right-upper: star -->
+  <g
+     class="p2"
+     id="g61">
+    <polygon
+       points="530,300 535,310 545,310 537,315 539,324 530,319 521,324 523,315 515,310 525,310"
+       class="wire g"
+       stroke-width="2"
+       id="polygon60" />
+  </g>
+  <!-- Left-lower: star -->
+  <g
+     class="p3"
+     id="g62">
+    <polygon
+       points="59,370 63,380 73,380 65,385 68,394 59,389 49,394 52,385 44,380 54,380"
+       class="wire g"
+       stroke-width="2"
+       id="polygon61" />
+  </g>
+  <!-- Right-lower: heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g63">
+    <path
+       d="M536,375 C531,369 521,369 521,376 C521,383 536,393 536,393 C536,393 551,383 551,376 C551,369 540,369 536,375 Z"
+       class="b b4"
+       id="path62" />
+  </g>
+  <!-- Bottom-left: heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g64">
+    <path
+       d="M87,455 C83,449 72,449 72,456 C72,463 87,473 87,473 C87,473 102,463 102,456 C102,449 92,449 87,455 Z"
+       class="b b3"
+       id="path63" />
+  </g>
+  <!-- Bottom-center: star -->
+  <g
+     class="p1"
+     id="g65">
+    <polygon
+       points="358,465 362,475 372,475 364,480 367,489 358,484 348,489 351,480 343,475 353,475"
+       class="wire g"
+       stroke-width="2"
+       id="polygon64" />
+  </g>
+  <!-- Bottom-right: star -->
+  <g
+     class="p2"
+     id="g66">
+    <polygon
+       points="518,450 524,463 540,463 528,472 532,485 518,476 505,485 509,472 497,463 513,463"
+       class="wire g"
+       stroke-width="2.5"
+       id="polygon65" />
+  </g>
+  <!-- Additional fills around the content -->
+  <!-- Top between left-star and center-heart: small star -->
+  <g
+     class="p2"
+     id="g67">
+    <polygon
+       points="162,198 165,205 174,205 167,209 169,216 162,212 155,216 157,209 150,205 159,205"
+       class="wire g"
+       stroke-width="1.5"
+       id="polygon66" />
+  </g>
+  <!-- Top between center-heart and right-star: small heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g68">
+    <path
+       d="M404,200 C400,195 392,195 392,200 C392,205 404,213 404,213 C404,213 415,205 415,200 C415,195 407,195 404,200 Z"
+       class="b b2"
+       id="path67" />
+  </g>
+  <!-- Left mid between upper-heart and lower-star: small star -->
+  <g
+     class="p1"
+     id="g69">
+    <polygon
+       points="53,332 56,339 64,339 57,343 60,350 53,346 46,350 48,343 41,339 49,339"
+       class="wire g"
+       stroke-width="1.5"
+       id="polygon68" />
+  </g>
+  <!-- Right mid between upper-star and lower-heart: small heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g70">
+    <path
+       d="M547,338 C544,333 536,333 536,338 C536,343 547,351 547,351 C547,351 559,343 559,338 C559,333 551,333 547,338 Z"
+       class="b b6"
+       id="path69" />
+  </g>
+  <!-- Left between lower-star and bottom-heart: small heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g71">
+    <path
+       d="M70,418 C67,413 59,413 59,418 C59,423 70,431 70,431 C70,431 82,423 82,418 C82,413 73,413 70,418 Z"
+       class="b b5"
+       id="path70" />
+  </g>
+  <!-- Right between lower-heart and bottom-star: small star -->
+  <g
+     class="p3"
+     id="g72">
+    <polygon
+       points="542,420 545,427 553,427 546,431 548,438 542,434 535,438 537,431 530,427 538,427"
+       class="wire g"
+       stroke-width="1.5"
+       id="polygon71" />
+  </g>
+  <!-- Bottom-center-left: small star -->
+  <g
+     class="p3"
+     id="g73">
+    <polygon
+       points="202,470 206,477 214,477 207,481 209,488 202,484 195,488 198,481 191,477 199,477"
+       class="wire g"
+       stroke-width="1.5"
+       id="polygon72" />
+  </g>
+  <!-- Bottom-center-right: small heart -->
+  <g
+     stroke="#c9394a"
+     fill="#c9394a"
+     fill-opacity="0.3"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g74">
+    <path
+       d="M461,475 C458,470 450,470 450,475 C450,480 461,488 461,488 C461,488 472,480 472,475 C472,470 464,470 461,475 Z"
+       class="b b1"
+       id="path73" />
+  </g>
+  <!-- ======================================== -->
+  <!--  THE CROWD — enthusiastic, reaching up   -->
+  <!-- ======================================== -->
+  <!-- Row 1 (front) — most energized, arms up toward the content/gift -->
+  <!-- Far left person -->
+  <g
+     style="animation: sway1 3.2s ease-in-out infinite"
+     id="g81">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g79">
+      <circle
+         cx="38"
+         cy="555"
+         r="16"
+         id="circle74" />
+      <circle
+         cx="32"
+         cy="553"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle75" />
+      <circle
+         cx="44"
+         cy="553"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle76" />
+      <path
+         d="M32,561 Q38,567 44,561"
+         id="path76" />
+      <line
+         x1="38"
+         y1="571"
+         x2="38"
+         y2="623"
+         id="line76" />
+      <path
+         d="M38,583 Q15,555 3,535"
+         id="path77" />
+      <path
+         d="M38,583 Q61,558 72,540"
+         id="path78" />
+      <line
+         x1="38"
+         y1="623"
+         x2="22"
+         y2="657"
+         id="line78" />
+      <line
+         x1="38"
+         y1="623"
+         x2="54"
+         y2="657"
+         id="line79" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g80">
+      <line
+         x1="-5"
+         y1="528"
+         x2="-14"
+         y2="518"
+         class="b b4"
+         id="line80" />
+    </g>
+  </g>
+  <!-- Person 1 — arms way up -->
+  <g
+     style="animation: sway2 3.8s ease-in-out infinite 0.4s"
+     id="g89">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g86">
+      <circle
+         cx="122"
+         cy="540"
+         r="18"
+         id="circle81" />
+      <circle
+         cx="115"
+         cy="538"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle82" />
+      <circle
+         cx="129"
+         cy="538"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle83" />
+      <path
+         d="M114,547 Q122,555 130,547"
+         id="path83" />
+      <line
+         x1="122"
+         y1="558"
+         x2="122"
+         y2="615"
+         id="line83" />
+      <path
+         d="M122,570 Q93,540 82,518"
+         id="path84" />
+      <path
+         d="M122,570 Q150,540 162,518"
+         id="path85" />
+      <line
+         x1="122"
+         y1="615"
+         x2="105"
+         y2="650"
+         id="line85" />
+      <line
+         x1="122"
+         y1="615"
+         x2="139"
+         y2="650"
+         id="line86" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g88">
+      <line
+         x1="72"
+         y1="510"
+         x2="63"
+         y2="500"
+         class="b"
+         id="line87" />
+      <line
+         x1="171"
+         y1="510"
+         x2="180"
+         y2="500"
+         class="b b2"
+         id="line88" />
+    </g>
+  </g>
+  <!-- Person 2 — one arm up, one waving -->
+  <g
+     style="animation: sway3 3.5s ease-in-out infinite 1.1s"
+     id="g96">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g94">
+      <circle
+         cx="231"
+         cy="545"
+         r="18"
+         id="circle89" />
+      <circle
+         cx="224"
+         cy="543"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle90" />
+      <circle
+         cx="238"
+         cy="543"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle91" />
+      <path
+         d="M223,552 Q231,559 239,552"
+         id="path91" />
+      <line
+         x1="231"
+         y1="563"
+         x2="231"
+         y2="620"
+         id="line91" />
+      <path
+         d="M231,575 Q202,548 191,528"
+         id="path92" />
+      <path
+         d="M231,575 Q254,585 271,600"
+         id="path93" />
+      <line
+         x1="231"
+         y1="620"
+         x2="214"
+         y2="655"
+         id="line93" />
+      <line
+         x1="231"
+         y1="620"
+         x2="248"
+         y2="655"
+         id="line94" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g95">
+      <line
+         x1="183"
+         y1="520"
+         x2="174"
+         y2="510"
+         class="b b1"
+         id="line95" />
+    </g>
+  </g>
+  <!-- Person 3 — center front, biggest, both arms V -->
+  <g
+     style="animation: sway1 3.0s ease-in-out infinite 0.6s"
+     id="g105">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g101">
+      <circle
+         cx="340"
+         cy="535"
+         r="20"
+         id="circle96" />
+      <circle
+         cx="332"
+         cy="532"
+         r="3"
+         fill="#666"
+         stroke="none"
+         id="circle97" />
+      <circle
+         cx="348"
+         cy="532"
+         r="3"
+         fill="#666"
+         stroke="none"
+         id="circle98" />
+      <path
+         d="M330,543 Q340,553 351,543"
+         id="path98" />
+      <line
+         x1="340"
+         y1="555"
+         x2="340"
+         y2="615"
+         id="line98" />
+      <path
+         d="M340,567 Q312,535 294,510"
+         id="path99" />
+      <path
+         d="M340,567 Q369,535 386,510"
+         id="path100" />
+      <line
+         x1="340"
+         y1="615"
+         x2="321"
+         y2="653"
+         id="line100" />
+      <line
+         x1="340"
+         y1="615"
+         x2="360"
+         y2="653"
+         id="line101" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g104">
+      <line
+         x1="285"
+         y1="503"
+         x2="275"
+         y2="490"
+         class="b b3"
+         id="line102" />
+      <line
+         x1="395"
+         y1="503"
+         x2="406"
+         y2="490"
+         class="b b4"
+         id="line103" />
+      <line
+         x1="340"
+         y1="505"
+         x2="340"
+         y2="490"
+         class="b b1"
+         id="line104" />
+    </g>
+  </g>
+  <!-- Person 4 — one arm reaching up -->
+  <g
+     style="animation: sway2 4.0s ease-in-out infinite 1.5s"
+     id="g112">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g110">
+      <circle
+         cx="438"
+         cy="543"
+         r="18"
+         id="circle105" />
+      <circle
+         cx="431"
+         cy="541"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle106" />
+      <circle
+         cx="445"
+         cy="541"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle107" />
+      <path
+         d="M430,550 Q438,557 446,550"
+         id="path107" />
+      <line
+         x1="438"
+         y1="561"
+         x2="438"
+         y2="618"
+         id="line107" />
+      <path
+         d="M438,573 Q467,545 482,523"
+         id="path108" />
+      <path
+         d="M438,573 Q409,590 398,607"
+         id="path109" />
+      <line
+         x1="438"
+         y1="618"
+         x2="421"
+         y2="655"
+         id="line109" />
+      <line
+         x1="438"
+         y1="618"
+         x2="455"
+         y2="655"
+         id="line110" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g111">
+      <line
+         x1="490"
+         y1="515"
+         x2="500"
+         y2="505"
+         class="b b5"
+         id="line111" />
+    </g>
+  </g>
+  <!-- Person 5 — far right, both arms up -->
+  <g
+     style="animation: sway3 3.3s ease-in-out infinite 0.2s"
+     id="g120">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g117">
+      <circle
+         cx="542"
+         cy="550"
+         r="17"
+         id="circle112" />
+      <circle
+         cx="535"
+         cy="548"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle113" />
+      <circle
+         cx="548"
+         cy="548"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle114" />
+      <path
+         d="M535,557 Q542,563 548,557"
+         id="path114" />
+      <line
+         x1="542"
+         y1="567"
+         x2="542"
+         y2="620"
+         id="line114" />
+      <path
+         d="M542,579 Q518,553 507,535"
+         id="path115" />
+      <path
+         d="M542,579 Q564,553 576,535"
+         id="path116" />
+      <line
+         x1="542"
+         y1="620"
+         x2="525"
+         y2="655"
+         id="line116" />
+      <line
+         x1="542"
+         y1="620"
+         x2="558"
+         y2="655"
+         id="line117" />
+    </g>
+    <g
+       class="wire p"
+       stroke-width="1.5"
+       id="g119">
+      <line
+         x1="498"
+         y1="528"
+         x2="489"
+         y2="518"
+         class="b b6"
+         id="line118" />
+      <line
+         x1="585"
+         y1="528"
+         x2="594"
+         y2="518"
+         class="b b3"
+         id="line119" />
+    </g>
+  </g>
+  <!-- Additional far-right person -->
+  <g
+     style="animation: sway1 3.7s ease-in-out infinite 0.9s"
+     id="g126">
+    <g
+       class="wire d"
+       stroke-width="3"
+       id="g125">
+      <circle
+         cx="582"
+         cy="558"
+         r="16"
+         id="circle120" />
+      <circle
+         cx="576"
+         cy="556"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle121" />
+      <circle
+         cx="588"
+         cy="556"
+         r="2.5"
+         fill="#666"
+         stroke="none"
+         id="circle122" />
+      <path
+         d="M576,564 Q582,570 588,564"
+         id="path122" />
+      <line
+         x1="582"
+         y1="574"
+         x2="582"
+         y2="625"
+         id="line122" />
+      <path
+         d="M582,586 Q605,560 616,543"
+         id="path123" />
+      <path
+         d="M582,586 Q559,560 547,545"
+         id="path124" />
+      <line
+         x1="582"
+         y1="625"
+         x2="567"
+         y2="658"
+         id="line124" />
+      <line
+         x1="582"
+         y1="625"
+         x2="597"
+         y2="658"
+         id="line125" />
+    </g>
+  </g>
+  <!-- ======================================== -->
+  <!--  Row 2 — behind, slightly faded          -->
+  <!-- ======================================== -->
+  <g
+     class="wire d"
+     stroke-width="2.5"
+     opacity="0.85"
+     id="g187">
+    <g
+       style="animation: swayMed 3.6s ease-in-out infinite 0.1s"
+       id="g131">
+      <!-- Person A — low left -->
+      <circle
+         cx="7"
+         cy="700"
+         r="15"
+         id="circle126" />
+      <circle
+         cx="1"
+         cy="698"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle127" />
+      <circle
+         cx="12"
+         cy="698"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle128" />
+      <path
+         d="M1,706 Q7,712 12,706"
+         id="path128" />
+      <line
+         x1="7"
+         y1="715"
+         x2="7"
+         y2="763"
+         id="line128" />
+      <path
+         d="M7,725 Q-16,703 -25,687"
+         id="path129" />
+      <path
+         d="M7,725 Q30,703 41,690"
+         id="path130" />
+      <line
+         x1="7"
+         y1="763"
+         x2="-7"
+         y2="795"
+         id="line130" />
+      <line
+         x1="7"
+         y1="763"
+         x2="21"
+         y2="795"
+         id="line131" />
+    </g>
+    <g
+       style="animation: swayMed 4.1s ease-in-out infinite 0.7s"
+       id="g136">
+      <!-- Person B — high -->
+      <circle
+         cx="133"
+         cy="665"
+         r="15"
+         id="circle131" />
+      <circle
+         cx="128"
+         cy="663"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle132" />
+      <circle
+         cx="139"
+         cy="663"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle133" />
+      <path
+         d="M128,671 Q133,677 139,671"
+         id="path133" />
+      <line
+         x1="133"
+         y1="680"
+         x2="133"
+         y2="728"
+         id="line133" />
+      <path
+         d="M133,690 Q110,668 101,652"
+         id="path134" />
+      <path
+         d="M133,690 Q156,673 171,662"
+         id="path135" />
+      <line
+         x1="133"
+         y1="728"
+         x2="118"
+         y2="760"
+         id="line135" />
+      <line
+         x1="133"
+         y1="728"
+         x2="148"
+         y2="760"
+         id="line136" />
+    </g>
+    <g
+       style="animation: swayMed 3.9s ease-in-out infinite 1.3s"
+       id="g141">
+      <!-- Person C — lower -->
+      <circle
+         cx="231"
+         cy="698"
+         r="15"
+         id="circle136" />
+      <circle
+         cx="225"
+         cy="696"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle137" />
+      <circle
+         cx="237"
+         cy="696"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle138" />
+      <path
+         d="M225,704 Q231,710 237,704"
+         id="path138" />
+      <line
+         x1="231"
+         y1="713"
+         x2="231"
+         y2="761"
+         id="line138" />
+      <path
+         d="M231,723 Q208,701 199,685"
+         id="path139" />
+      <path
+         d="M231,723 Q254,701 268,688"
+         id="path140" />
+      <line
+         x1="231"
+         y1="761"
+         x2="216"
+         y2="793"
+         id="line140" />
+      <line
+         x1="231"
+         y1="761"
+         x2="246"
+         y2="793"
+         id="line141" />
+    </g>
+    <g
+       style="animation: swayMed 4.3s ease-in-out infinite 0.4s"
+       id="g146">
+      <!-- Person D — high center -->
+      <circle
+         cx="334"
+         cy="668"
+         r="15"
+         id="circle141" />
+      <circle
+         cx="329"
+         cy="666"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle142" />
+      <circle
+         cx="340"
+         cy="666"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle143" />
+      <path
+         d="M329,674 Q334,680 340,674"
+         id="path143" />
+      <line
+         x1="334"
+         y1="683"
+         x2="334"
+         y2="731"
+         id="line143" />
+      <path
+         d="M334,693 Q312,671 302,655"
+         id="path144" />
+      <path
+         d="M334,693 Q358,671 371,658"
+         id="path145" />
+      <line
+         x1="334"
+         y1="731"
+         x2="320"
+         y2="763"
+         id="line145" />
+      <line
+         x1="334"
+         y1="731"
+         x2="349"
+         y2="763"
+         id="line146" />
+    </g>
+    <g
+       style="animation: swayMed 3.7s ease-in-out infinite 1.0s"
+       id="g151">
+      <!-- Person E — lower right -->
+      <circle
+         cx="461"
+         cy="695"
+         r="15"
+         id="circle146" />
+      <circle
+         cx="455"
+         cy="693"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle147" />
+      <circle
+         cx="467"
+         cy="693"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle148" />
+      <path
+         d="M455,701 Q461,707 467,701"
+         id="path148" />
+      <line
+         x1="461"
+         y1="710"
+         x2="461"
+         y2="758"
+         id="line148" />
+      <path
+         d="M461,720 Q438,698 429,682"
+         id="path149" />
+      <path
+         d="M461,720 Q484,698 498,685"
+         id="path150" />
+      <line
+         x1="461"
+         y1="758"
+         x2="446"
+         y2="790"
+         id="line150" />
+      <line
+         x1="461"
+         y1="758"
+         x2="476"
+         y2="790"
+         id="line151" />
+    </g>
+    <g
+       style="animation: swayMed 4.0s ease-in-out infinite 1.6s"
+       id="g156">
+      <!-- Person F — high right -->
+      <circle
+         cx="564"
+         cy="672"
+         r="15"
+         id="circle151" />
+      <circle
+         cx="559"
+         cy="670"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle152" />
+      <circle
+         cx="570"
+         cy="670"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle153" />
+      <path
+         d="M559,678 Q564,684 570,678"
+         id="path153" />
+      <line
+         x1="564"
+         y1="687"
+         x2="564"
+         y2="735"
+         id="line153" />
+      <path
+         d="M564,697 Q542,675 532,659"
+         id="path154" />
+      <path
+         d="M564,697 Q588,675 601,662"
+         id="path155" />
+      <line
+         x1="564"
+         y1="735"
+         x2="550"
+         y2="767"
+         id="line155" />
+      <line
+         x1="564"
+         y1="735"
+         x2="579"
+         y2="767"
+         id="line156" />
+    </g>
+    <g
+       style="animation: swayMed 3.8s ease-in-out infinite 0.3s"
+       id="g161">
+      <!-- Person G — far right, lower -->
+      <circle
+         cx="616"
+         cy="705"
+         r="14"
+         id="circle156" />
+      <circle
+         cx="610"
+         cy="703"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle157" />
+      <circle
+         cx="622"
+         cy="703"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle158" />
+      <path
+         d="M610,710 Q616,716 622,710"
+         id="path158" />
+      <line
+         x1="616"
+         y1="719"
+         x2="616"
+         y2="765"
+         id="line158" />
+      <path
+         d="M616,729 Q596,709 588,695"
+         id="path159" />
+      <path
+         d="M616,729 Q637,709 645,698"
+         id="path160" />
+      <line
+         x1="616"
+         y1="765"
+         x2="602"
+         y2="795"
+         id="line160" />
+      <line
+         x1="616"
+         y1="765"
+         x2="630"
+         y2="795"
+         id="line161" />
+    </g>
+    <g
+       style="animation: swayMed 4.2s ease-in-out infinite 0.9s"
+       id="g166">
+      <!-- Person H — between A and B -->
+      <circle
+         cx="70"
+         cy="690"
+         r="14"
+         id="circle161" />
+      <circle
+         cx="64"
+         cy="688"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle162" />
+      <circle
+         cx="76"
+         cy="688"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle163" />
+      <path
+         d="M64,695 Q70,701 76,695"
+         id="path163" />
+      <line
+         x1="70"
+         y1="704"
+         x2="70"
+         y2="750"
+         id="line163" />
+      <path
+         d="M70,714 Q47,692 38,678"
+         id="path164" />
+      <path
+         d="M70,714 Q93,694 105,682"
+         id="path165" />
+      <line
+         x1="70"
+         y1="750"
+         x2="56"
+         y2="782"
+         id="line165" />
+      <line
+         x1="70"
+         y1="750"
+         x2="84"
+         y2="782"
+         id="line166" />
+    </g>
+    <g
+       style="animation: swayMed 3.5s ease-in-out infinite 1.4s"
+       id="g171">
+      <!-- Person I — between D and E -->
+      <circle
+         cx="398"
+         cy="685"
+         r="14"
+         id="circle166" />
+      <circle
+         cx="392"
+         cy="683"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle167" />
+      <circle
+         cx="404"
+         cy="683"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle168" />
+      <path
+         d="M392,691 Q398,697 404,691"
+         id="path168" />
+      <line
+         x1="398"
+         y1="699"
+         x2="398"
+         y2="747"
+         id="line168" />
+      <path
+         d="M398,709 Q375,687 366,673"
+         id="path169" />
+      <path
+         d="M398,709 Q421,689 432,676"
+         id="path170" />
+      <line
+         x1="398"
+         y1="747"
+         x2="384"
+         y2="779"
+         id="line170" />
+      <line
+         x1="398"
+         y1="747"
+         x2="412"
+         y2="779"
+         id="line171" />
+    </g>
+    <g
+       style="animation: swayMed 4.4s ease-in-out infinite 0.6s"
+       id="g176">
+      <!-- Person J — between C and D, lower -->
+      <circle
+         cx="286"
+         cy="705"
+         r="13"
+         id="circle171" />
+      <circle
+         cx="280"
+         cy="703"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle172" />
+      <circle
+         cx="292"
+         cy="703"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle173" />
+      <path
+         d="M280,710 Q286,716 292,710"
+         id="path173" />
+      <line
+         x1="286"
+         y1="718"
+         x2="286"
+         y2="762"
+         id="line173" />
+      <path
+         d="M286,728 Q266,708 257,694"
+         id="path174" />
+      <path
+         d="M286,728 Q307,708 317,697"
+         id="path175" />
+      <line
+         x1="286"
+         y1="762"
+         x2="272"
+         y2="792"
+         id="line175" />
+      <line
+         x1="286"
+         y1="762"
+         x2="300"
+         y2="792"
+         id="line176" />
+    </g>
+    <g
+       style="animation: swayMed 3.8s ease-in-out infinite 1.8s"
+       id="g181">
+      <!-- Person K — between E and F -->
+      <circle
+         cx="516"
+         cy="702"
+         r="13"
+         id="circle176" />
+      <circle
+         cx="510"
+         cy="700"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle177" />
+      <circle
+         cx="522"
+         cy="700"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle178" />
+      <path
+         d="M510,707 Q516,713 522,707"
+         id="path178" />
+      <line
+         x1="516"
+         y1="715"
+         x2="516"
+         y2="759"
+         id="line178" />
+      <path
+         d="M516,725 Q496,705 487,691"
+         id="path179" />
+      <path
+         d="M516,725 Q537,705 547,694"
+         id="path180" />
+      <line
+         x1="516"
+         y1="759"
+         x2="502"
+         y2="789"
+         id="line180" />
+      <line
+         x1="516"
+         y1="759"
+         x2="530"
+         y2="789"
+         id="line181" />
+    </g>
+    <g
+       style="animation: swayMed 4.1s ease-in-out infinite 1.2s"
+       id="g186">
+      <!-- Person L — far left high -->
+      <circle
+         cx="179"
+         cy="708"
+         r="13"
+         id="circle181" />
+      <circle
+         cx="174"
+         cy="706"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle182" />
+      <circle
+         cx="185"
+         cy="706"
+         r="2"
+         fill="#666"
+         stroke="none"
+         id="circle183" />
+      <path
+         d="M174,713 Q179,719 185,713"
+         id="path183" />
+      <line
+         x1="179"
+         y1="721"
+         x2="179"
+         y2="765"
+         id="line183" />
+      <path
+         d="M179,731 Q159,711 150,697"
+         id="path184" />
+      <path
+         d="M179,731 Q200,711 210,700"
+         id="path185" />
+      <line
+         x1="179"
+         y1="765"
+         x2="165"
+         y2="795"
+         id="line185" />
+      <line
+         x1="179"
+         y1="765"
+         x2="193"
+         y2="795"
+         id="line186" />
+    </g>
+  </g>
+  <!-- ======================================== -->
+  <!--  Row 3 — deeper, fading more             -->
+  <!-- ======================================== -->
+  <g
+     class="wire d"
+     stroke-width="1.5"
+     opacity="0.55"
+     id="g240">
+    <g
+       style="animation: swaySmall 4.5s ease-in-out infinite 0.2s"
+       id="g191">
+      <circle
+         cx="3"
+         cy="788"
+         r="13"
+         id="circle187" />
+      <circle
+         cx="-1"
+         cy="786"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle188" />
+      <circle
+         cx="8"
+         cy="786"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle189" />
+      <path
+         d="M-1,793 Q3,798 8,793"
+         id="path189" />
+      <line
+         x1="3"
+         y1="801"
+         x2="3"
+         y2="838"
+         id="line189" />
+      <path
+         d="M3,811 Q-17,791 -25,778"
+         id="path190" />
+      <path
+         d="M3,811 Q24,791 32,778"
+         id="path191" />
+    </g>
+    <g
+       style="animation: swaySmall 5.0s ease-in-out infinite 0.9s"
+       id="g195">
+      <circle
+         cx="87"
+         cy="792"
+         r="13"
+         id="circle191" />
+      <circle
+         cx="83"
+         cy="790"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle192" />
+      <circle
+         cx="92"
+         cy="790"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle193" />
+      <path
+         d="M83,797 Q87,802 92,797"
+         id="path193" />
+      <line
+         x1="87"
+         y1="805"
+         x2="87"
+         y2="842"
+         id="line193" />
+      <path
+         d="M87,815 Q67,795 59,782"
+         id="path194" />
+      <path
+         d="M87,815 Q108,795 116,782"
+         id="path195" />
+    </g>
+    <g
+       style="animation: swaySmall 4.7s ease-in-out infinite 1.5s"
+       id="g199">
+      <circle
+         cx="171"
+         cy="795"
+         r="13"
+         id="circle195" />
+      <circle
+         cx="167"
+         cy="793"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle196" />
+      <circle
+         cx="176"
+         cy="793"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle197" />
+      <path
+         d="M167,800 Q171,805 176,800"
+         id="path197" />
+      <line
+         x1="171"
+         y1="808"
+         x2="171"
+         y2="845"
+         id="line197" />
+      <path
+         d="M171,818 Q150,798 142,785"
+         id="path198" />
+      <path
+         d="M171,818 Q192,798 200,785"
+         id="path199" />
+    </g>
+    <g
+       style="animation: swaySmall 5.2s ease-in-out infinite 0.5s"
+       id="g203">
+      <circle
+         cx="255"
+         cy="797"
+         r="13"
+         id="circle199" />
+      <circle
+         cx="251"
+         cy="795"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle200" />
+      <circle
+         cx="260"
+         cy="795"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle201" />
+      <path
+         d="M251,802 Q255,807 260,802"
+         id="path201" />
+      <line
+         x1="255"
+         y1="810"
+         x2="255"
+         y2="847"
+         id="line201" />
+      <path
+         d="M255,820 Q234,800 226,787"
+         id="path202" />
+      <path
+         d="M255,820 Q276,800 284,787"
+         id="path203" />
+    </g>
+    <g
+       style="animation: swaySmall 4.8s ease-in-out infinite 1.2s"
+       id="g207">
+      <circle
+         cx="339"
+         cy="798"
+         r="13"
+         id="circle203" />
+      <circle
+         cx="334"
+         cy="796"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle204" />
+      <circle
+         cx="344"
+         cy="796"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle205" />
+      <path
+         d="M334,803 Q339,808 344,803"
+         id="path205" />
+      <line
+         x1="339"
+         y1="811"
+         x2="339"
+         y2="848"
+         id="line205" />
+      <path
+         d="M339,821 Q318,801 310,788"
+         id="path206" />
+      <path
+         d="M339,821 Q360,801 368,788"
+         id="path207" />
+    </g>
+    <g
+       style="animation: swaySmall 5.1s ease-in-out infinite 0.3s"
+       id="g211">
+      <circle
+         cx="423"
+         cy="796"
+         r="13"
+         id="circle207" />
+      <circle
+         cx="418"
+         cy="794"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle208" />
+      <circle
+         cx="428"
+         cy="794"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle209" />
+      <path
+         d="M418,801 Q423,806 428,801"
+         id="path209" />
+      <line
+         x1="423"
+         y1="809"
+         x2="423"
+         y2="846"
+         id="line209" />
+      <path
+         d="M423,819 Q402,799 394,786"
+         id="path210" />
+      <path
+         d="M423,819 Q444,799 452,786"
+         id="path211" />
+    </g>
+    <g
+       style="animation: swaySmall 4.6s ease-in-out infinite 1.8s"
+       id="g215">
+      <circle
+         cx="507"
+         cy="793"
+         r="13"
+         id="circle211" />
+      <circle
+         cx="502"
+         cy="791"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle212" />
+      <circle
+         cx="512"
+         cy="791"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle213" />
+      <path
+         d="M502,798 Q507,803 512,798"
+         id="path213" />
+      <line
+         x1="507"
+         y1="806"
+         x2="507"
+         y2="843"
+         id="line213" />
+      <path
+         d="M507,816 Q486,796 478,783"
+         id="path214" />
+      <path
+         d="M507,816 Q528,796 536,783"
+         id="path215" />
+    </g>
+    <g
+       style="animation: swaySmall 5.3s ease-in-out infinite 0.7s"
+       id="g219">
+      <circle
+         cx="591"
+         cy="790"
+         r="13"
+         id="circle215" />
+      <circle
+         cx="586"
+         cy="788"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle216" />
+      <circle
+         cx="596"
+         cy="788"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle217" />
+      <path
+         d="M586,795 Q591,800 596,795"
+         id="path217" />
+      <line
+         x1="591"
+         y1="803"
+         x2="591"
+         y2="840"
+         id="line217" />
+      <path
+         d="M591,813 Q570,793 562,780"
+         id="path218" />
+      <path
+         d="M591,813 Q612,793 620,780"
+         id="path219" />
+      <!-- Extra row 3 people in between -->
+    </g>
+    <g
+       style="animation: swaySmall 4.9s ease-in-out infinite 1.4s"
+       id="g223">
+      <circle
+         cx="128"
+         cy="800"
+         r="12"
+         id="circle219" />
+      <circle
+         cx="123"
+         cy="798"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle220" />
+      <circle
+         cx="132"
+         cy="798"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle221" />
+      <path
+         d="M123,805 Q128,810 132,805"
+         id="path221" />
+      <line
+         x1="128"
+         y1="812"
+         x2="128"
+         y2="845"
+         id="line221" />
+      <path
+         d="M128,822 Q109,804 102,792"
+         id="path222" />
+      <path
+         d="M128,822 Q146,804 153,792"
+         id="path223" />
+    </g>
+    <g
+       style="animation: swaySmall 5.4s ease-in-out infinite 0.4s"
+       id="g227">
+      <circle
+         cx="214"
+         cy="803"
+         r="12"
+         id="circle223" />
+      <circle
+         cx="209"
+         cy="801"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle224" />
+      <circle
+         cx="218"
+         cy="801"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle225" />
+      <path
+         d="M209,808 Q214,813 218,808"
+         id="path225" />
+      <line
+         x1="214"
+         y1="815"
+         x2="214"
+         y2="848"
+         id="line225" />
+      <path
+         d="M214,825 Q195,807 188,795"
+         id="path226" />
+      <path
+         d="M214,825 Q232,807 239,795"
+         id="path227" />
+    </g>
+    <g
+       style="animation: swaySmall 4.7s ease-in-out infinite 1.0s"
+       id="g231">
+      <circle
+         cx="300"
+         cy="805"
+         r="12"
+         id="circle227" />
+      <circle
+         cx="295"
+         cy="803"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle228" />
+      <circle
+         cx="305"
+         cy="803"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle229" />
+      <path
+         d="M295,810 Q300,815 305,810"
+         id="path229" />
+      <line
+         x1="300"
+         y1="817"
+         x2="300"
+         y2="850"
+         id="line229" />
+      <path
+         d="M300,827 Q282,809 275,797"
+         id="path230" />
+      <path
+         d="M300,827 Q318,809 325,797"
+         id="path231" />
+    </g>
+    <g
+       style="animation: swaySmall 5.0s ease-in-out infinite 1.7s"
+       id="g235">
+      <circle
+         cx="461"
+         cy="800"
+         r="12"
+         id="circle231" />
+      <circle
+         cx="456"
+         cy="798"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle232" />
+      <circle
+         cx="466"
+         cy="798"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle233" />
+      <path
+         d="M456,805 Q461,810 466,805"
+         id="path233" />
+      <line
+         x1="461"
+         y1="812"
+         x2="461"
+         y2="845"
+         id="line233" />
+      <path
+         d="M461,822 Q443,804 436,792"
+         id="path234" />
+      <path
+         d="M461,822 Q479,804 486,792"
+         id="path235" />
+    </g>
+    <g
+       style="animation: swaySmall 4.8s ease-in-out infinite 0.6s"
+       id="g239">
+      <circle
+         cx="547"
+         cy="796"
+         r="12"
+         id="circle235" />
+      <circle
+         cx="543"
+         cy="794"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle236" />
+      <circle
+         cx="552"
+         cy="794"
+         r="1.5"
+         fill="#555"
+         stroke="none"
+         id="circle237" />
+      <path
+         d="M543,801 Q547,806 552,801"
+         id="path237" />
+      <line
+         x1="547"
+         y1="808"
+         x2="547"
+         y2="841"
+         id="line237" />
+      <path
+         d="M547,818 Q529,800 522,788"
+         id="path238" />
+      <path
+         d="M547,818 Q566,800 573,788"
+         id="path239" />
+    </g>
+  </g>
+</svg>

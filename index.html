@@ -398,15 +398,60 @@
                 box-sizing: border-box;
                 font-size: var(--fs-md);
                 line-height: 1.5;
+                outline: none;
+            }
+            .notify-controls input[type="email"]:focus {
+                border-color: var(--primary-color);
             }
 
             /* 3. tighten button spacing if needed */
             .notify-controls .btn {
                 white-space: nowrap; /* prevent button text wrapping */
                 margin-bottom: 0; /* align baseline with the input */
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+
+            /* Shared button base (mirrors c__base-button) */
+            .c__primary-button,
+            .c__primary-button-outlined {
+                display: inline-block;
+                cursor: pointer;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                padding: 0.375rem 0.75rem;
+                font-size: var(--fs-md);
+                line-height: 1.5;
+                text-decoration: none;
+                text-align: center;
+                border: none;
+                box-sizing: border-box;
+                min-width: 120px;
+            }
+
+            /* Solid primary button */
+            .c__primary-button {
+                background-color: var(--primary-color);
+                color: #fff;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                transition: all 150ms ease-in;
+            }
+            .c__primary-button:hover {
+                background-color: #542fd3;
+            }
+
+            /* Outlined primary button */
+            .c__primary-button-outlined {
                 background: transparent;
                 color: var(--primary-color);
-                border: 2px solid var(--primary-color);
+                outline: 2px solid var(--primary-color);
+                outline-offset: -2px;
+                transition: outline-width 100ms ease-in-out, outline-offset 100ms ease-in-out;
+            }
+            .c__primary-button-outlined:hover {
+                outline-width: 4px;
+                outline-offset: -4px;
             }
 
             .response-message {
@@ -759,7 +804,7 @@
                                         id="recaptchaToken"
                                     />
 
-                                    <button type="submit" class="btn">
+                                    <button type="submit" class="btn c__primary-button-outlined">
                                         Notify Me
                                     </button>
 
@@ -775,12 +820,13 @@
                             <div class="action" style="text-align: center; order: 1;">
                                 <p>Curious How?</p>
                                 <a
-                                    class="btn"
+                                    class="btn c__primary-button"
                                     href="https://calendar.app.google/DtAuzJTwgEfUnTRg8"
                                     target="_blank"
                                     rel="noopener"
-                                    >Grab a Time*</a
                                 >
+                                    Grab a Time*
+                                </a>
                                 <span class="cta-note" style="display: block; margin-top: 16px; font-size: 0.85em;">*No commitment, just a 20-minute conversation.</span>
                             </div>
                         </div>

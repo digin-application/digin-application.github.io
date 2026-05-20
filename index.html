@@ -58,6 +58,7 @@
                 --section-spacing-mobile: 10px;
                 --section-spacing-tablet: 20px;
                 --section-spacing-desktop: 40px;
+                --benefits-gap: 25px;
 
                 /* Font sizes for mobile */
                 --fs-xl: 1.5rem; /* Large headings */
@@ -117,7 +118,7 @@
                 opacity: 0;
                 transform: translateY(20px);
                 animation: fadeInUp 0.5s ease-out forwards;
-                animation-delay: 0.85s;
+                animation-delay: 0.4s;
             }
 
             .page-content {
@@ -172,7 +173,7 @@
                 stroke-dasharray: 150;
                 stroke-dashoffset: 150;
                 animation: draw-underline 0.5s ease-out forwards;
-                animation-delay: 1.8s;
+                animation-delay: 1.0s;
             }
 
             @keyframes draw-underline {
@@ -181,11 +182,12 @@
                 }
             }
 
-            /* Hero section styling - updated to make summary and image side by side */
+            /* Hero section styling - summary and image side by side on larger screens.
+               column-reverse puts the explainer right under the tagline on mobile/tablet,
+               matching the visual order on desktop (where row-reverse does the same). */
             .hero-section {
                 display: flex;
-                flex-direction: column;
-                /* gap: var(--gap-size); */
+                flex-direction: column-reverse;
                 margin-bottom: var(--section-spacing-mobile);
             }
 
@@ -193,15 +195,6 @@
                 width: fit-content;
                 max-width: 360px;
                 margin: 0 auto;
-            }
-
-            .hero-image {
-                flex: 1 1 100%;
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            .hero-content {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -209,6 +202,9 @@
             }
 
             .hero-image {
+                flex: 1 1 100%;
+                width: 100%;
+                margin: 0 auto;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -262,7 +258,6 @@
                 flex-direction: column;
                 gap: var(--gap-size);
                 font-size: calc(var(--fs-md) * 0.9);
-                margin-bottom: var(--section-spacing-mobile);
             }
             .benefits > h1.tagline {
                 flex: 0 0 100%;
@@ -277,6 +272,10 @@
                 text-align: center;
                 transition: all 0.2s ease-in-out;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
             .benefit:hover {
                 background: #fff;
@@ -293,6 +292,49 @@
             .benefit h3 {
                 font-size: var(--fs-md);
                 margin-bottom: 10px;
+            }
+
+            /* ---- Mission statement (sticky note) ---- */
+            .mission {
+                margin: 0 auto var(--section-spacing-mobile);
+                max-width: 760px;
+                font-size: var(--fs-md);
+                line-height: 1.6;
+                padding: 28px 32px 28px 72px;
+                background: #dee1ff;
+                color: #0d2b18;
+                border-radius: 4px;
+                box-shadow: 4px 6px 16px rgba(0,0,0,0.12),
+                            inset 0 -2px 0 rgba(0,0,0,0.04);
+                transform: rotate(-1.2deg);
+                position: relative;
+            }
+            .mission::before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%) rotate(2deg);
+                width: 90px;
+                height: 22px;
+                border-radius: 2px;
+                background: rgba(255,202,40,0.50);
+                border: 1px dashed rgba(120,80,0,0.4);
+            }
+            .mission .key {
+                background: linear-gradient(180deg,
+                    transparent 55%, #ffe66d 55%, #ffe66d 92%, transparent 92%);
+                padding: 0 2px;
+                font-weight: 800;
+            }
+            .mission-icon {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 38px;
+                height: auto;
+                pointer-events: none;
             }
 
             .cta {
@@ -480,25 +522,23 @@
                     margin-bottom: var(--section-spacing-tablet);
                 }
                 .hero-section {
-                    margin-bottom: var(--section-spacing-tablet);
-                }
-                .benefits {
-                    margin-bottom: var(--section-spacing-tablet);
-                }
-                .cta {
-                    margin-bottom: var(--section-spacing-tablet);
-                }
-                .logo {
-                    max-width: 250px;
-                }
-
-                /* Position content strategically for tablet fold */
-                .hero-section {
+                    margin-bottom: 40px;
                     min-height: auto;
+                }
+                .mission {
+                    margin-top: 10px;
+                    margin-bottom: 40px;
                 }
                 .benefits {
                     flex-direction: row;
                     flex-wrap: wrap;
+                }
+                .cta {
+                    margin-bottom: var(--section-spacing-tablet);
+                    margin-top: 20px;
+                }
+                .logo {
+                    max-width: 250px;
                 }
                 .benefit {
                     flex: 1 1 calc(50% - var(--gap-size));
@@ -514,14 +554,20 @@
                 .first-fold-content .hero-section {
                     order: 1;
                 }
-                .page-content .cta {
+                .first-fold-content .mission {
                     order: 2;
                 }
-                .first-fold-content .benefits-container {
+                .page-content .cta--how {
                     order: 3;
                 }
-                .page-content .footer {
+                .first-fold-content .benefits-container {
                     order: 4;
+                }
+                .page-content .cta--notify {
+                    order: 5;
+                }
+                .page-content .footer {
+                    order: 6;
                 }
             }
 
@@ -532,17 +578,13 @@
                     --fs-lg: 1.75rem;
                     --fs-md: 1.125rem;
                     --fs-sm: 1rem;
-                }
-
-                header {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    text-align: left;
+                    --benefits-gap: 60px;
                 }
 
                 .hero-section {
                     flex-direction: row-reverse;
                     align-items: stretch;
+                    margin-bottom: 70px;
                 }
                 .hero-content {
                     width: fit-content;
@@ -565,10 +607,20 @@
                 .benefits {
                     flex-direction: row;
                     flex-wrap: nowrap;
-                    margin-bottom: 50px;
                 }
                 .benefit {
                     flex: 1 1 calc(25% - var(--gap-size));
+                }
+                .mission {
+                    margin-top: 20px;
+                    margin-bottom: 60px;
+                    font-size: calc(var(--fs-md) * 1.05);
+                }
+                .benefits-container {
+                    margin-bottom: 40px;
+                }
+                .benefits-container > h1.tagline {
+                    margin-bottom: 30px;
                 }
 
                 .cta {
@@ -577,6 +629,7 @@
                     max-width: 500px;
                     margin-left: auto;
                     margin-right: auto;
+                    margin-top: 30px;
                     margin-bottom: var(--section-spacing-desktop);
                 }
                 .action {
@@ -596,24 +649,30 @@
                 .first-fold-content .hero-section {
                     order: 1;
                 }
-                .first-fold-content .benefits-container {
+                .first-fold-content .mission {
                     order: 2;
                 }
-                .page-content .cta {
+                .page-content .cta--how {
                     order: 3;
                 }
-                .page-content .footer {
+                .first-fold-content .benefits-container {
                     order: 4;
+                }
+                .page-content .cta--notify {
+                    order: 5;
+                }
+                .page-content .footer {
+                    order: 6;
                 }
             }
 
             /* Small screens */
             @media (max-width: 420px) {
                 :root {
-                    --fs-xl: 1.25rem;
-                    --fs-lg: 1.125rem;
-                    --fs-md: 0.875rem;
-                    --fs-sm: 0.75rem;
+                    --fs-xl: 1.5rem;
+                    --fs-lg: 1.2rem;
+                    --fs-md: 1rem;
+                    --fs-sm: 0.85rem;
                 }
 
                 .logo {
@@ -625,12 +684,10 @@
                     margin-bottom: 30px;
                 }
 
-                /* lay the summaries out in one row */
+                /* Stack the summary cards full-width on small screens — three
+                   tiny columns at this size were too cramped to read. */
                 .hero-content {
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: space-between;
-                    gap: 10px; /* optional tweak to control spacing */
+                    gap: 12px;
                 }
 
                 .hero-image {
@@ -644,13 +701,6 @@
                     object-fit: contain;
                 }
 
-                /* make each summary take up roughly a third of the width */
-                .summary {
-                    flex: 1 1 calc(10% - 10px);
-                    font-size: calc(var(--fs-md) * 0.9);
-                    padding: 10px;
-                }
-
                 /* Calculate mobile fold */
                 .first-fold-content {
                     display: flex;
@@ -662,20 +712,68 @@
                 .first-fold-content .hero-section {
                     order: 1;
                 }
-                .page-content .cta {
+                .first-fold-content .mission {
                     order: 2;
                 }
-                .first-fold-content .benefits-container {
+                .page-content .cta--how {
                     order: 3;
+                }
+                .first-fold-content .benefits-container {
+                    order: 4;
                     margin-top: 20px;
                 }
+                .page-content .cta--notify {
+                    order: 5;
+                }
                 .page-content .footer {
-                    order: 4;
+                    order: 6;
+                }
+            }
+
+            /* Gap above the benefits section uses --benefits-gap; the gap
+               below is slightly larger to give the email form more breathing
+               room. (60/75 on desktop, 25/31 on tablet/mobile.) */
+            .first-fold-content .benefits-container {
+                margin-top: 0;
+                margin-bottom: calc(var(--benefits-gap) * 1.25);
+            }
+            .cta--how {
+                margin-bottom: var(--benefits-gap);
+            }
+            .cta--notify {
+                margin-top: 0;
+            }
+
+            /* Respect users who've opted out of motion. */
+            @media (prefers-reduced-motion: reduce) {
+                .tagline-answer,
+                .page-content.visible {
+                    animation: none;
+                    opacity: 1;
+                    transform: none;
+                }
+                .page-content {
+                    opacity: 1;
+                    transform: none;
+                }
+                .underline-animated path {
+                    animation: none;
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            /* Smaller mission bulb + tighter sticky padding on phones. */
+            @media (max-width: 420px) {
+                .mission {
+                    padding: 24px 24px 24px 54px;
+                }
+                .mission-icon {
+                    width: 28px;
+                    left: 14px;
                 }
             }
         </style>
 
-        <script src="https://www.google.com/recaptcha/api.js?render=6LeAkngsAAAAAM9iDrOht45bWqHd6KNNGovFGV2a"></script>
     </head>
     <body>
         <div class="container">
@@ -733,6 +831,34 @@
                             </div>
                         </div>
 
+                        <p class="mission">
+                            <svg class="mission-icon" viewBox="0 0 36 44" aria-hidden="true" focusable="false">
+                                <g stroke="#e6a800" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <!-- sparkle rays around the top -->
+                                    <g stroke-width="2">
+                                        <line x1="18" y1="0" x2="18" y2="3.5" />
+                                        <line x1="4" y1="6" x2="1.5" y2="3.5" />
+                                        <line x1="32" y1="6" x2="34.5" y2="3.5" />
+                                        <line x1="0" y1="16" x2="3" y2="16" />
+                                        <line x1="33" y1="16" x2="36" y2="16" />
+                                    </g>
+                                    <!-- bulb body -->
+                                    <path d="M 13 27 C 8 25, 7 20, 7 16 C 7 7, 29 7, 29 16 C 29 20, 28 25, 23 27"
+                                          stroke-width="2.5" fill="#fff5b8" />
+                                    <!-- wavy filament -->
+                                    <path d="M 14 18 Q 16 14 18 18 T 22 18" stroke-width="1.5" />
+                                    <!-- screw socket -->
+                                    <path d="M 13 27 L 13 33 L 23 33 L 23 27"
+                                          stroke-width="2.5" fill="#fff5b8" />
+                                    <line x1="13" y1="30" x2="23" y2="30" stroke-width="1.5" />
+                                    <!-- contact tip -->
+                                    <path d="M 15 33 L 15 38 L 21 38 L 21 33"
+                                          stroke-width="1.5" fill="#e6a800" />
+                                </g>
+                            </svg>
+                            Turns out, <span class="key">the engagement problem and the revenue problem are the same problem</span> for online media. DigIn tackles them together by building <span class="key">a new revenue model for publishers</span> that grows out of the attention their work actually earns.
+                        </p>
+
                         <div class="benefits-container">
                             <h1 class="tagline">Why You'll Love This</h1>
                             <div class="benefits">
@@ -784,8 +910,23 @@
                         </div>
 
 
-                        <div class="cta" id="cta">
-                            <form id="emailForm" class="action notify-form" style="order: 2;">
+                        <div class="cta cta--how">
+                            <div class="action" style="text-align: center;">
+                                <p>Curious How?</p>
+                                <a
+                                    class="btn c__primary-button"
+                                    href="https://calendar.app.google/DtAuzJTwgEfUnTRg8"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    Grab a Time*
+                                </a>
+                                <span class="cta-note" style="display: block; margin-top: 16px; font-size: 0.85em;">*No commitment, just a 20-minute conversation.</span>
+                            </div>
+                        </div>
+
+                        <div class="cta cta--notify">
+                            <form id="emailForm" class="action notify-form">
                                 <p>Be the first to know:</p>
 
                                 <div class="notify-controls">
@@ -815,19 +956,6 @@
                                     ></div>
                                 </div>
                             </form>
-
-                            <div class="action" style="text-align: center; order: 1;">
-                                <p>Curious How?</p>
-                                <a
-                                    class="btn c__primary-button"
-                                    href="https://calendar.app.google/DtAuzJTwgEfUnTRg8"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    Grab a Time*
-                                </a>
-                                <span class="cta-note" style="display: block; margin-top: 16px; font-size: 0.85em;">*No commitment, just a 20-minute conversation.</span>
-                            </div>
                         </div>
                     </div>
 
@@ -856,14 +984,19 @@
 
         <script>
             globalThis.addEventListener("DOMContentLoaded", () => {
-                // reveal & animate in one go
+                // Reveal after the tagline + underline animations finish.
+                // For users who prefer reduced motion, skip the wait entirely.
+                const reduceMotion = globalThis
+                    .matchMedia("(prefers-reduced-motion: reduce)")
+                    .matches;
                 setTimeout(() => {
                     document
                         .querySelector(".page-content")
                         .classList.add("visible");
-                }, 2500);
+                }, reduceMotion ? 0 : 1500);
             });
         </script>
+
 
         <script>
             const form = document.getElementById("emailForm");
@@ -871,54 +1004,77 @@
             const SITE_KEY = "6LeAkngsAAAAAM9iDrOht45bWqHd6KNNGovFGV2a";
             const API_ENDPOINT = "https://api-gwri5xyiga-uc.a.run.app/signup";
 
+            // Lazy-load reCAPTCHA — only fetch the ~50KB script when the visitor
+            // actually engages with the form, instead of on every page view.
+            let recaptchaPromise = null;
+            function loadRecaptcha() {
+                if (recaptchaPromise) return recaptchaPromise;
+                recaptchaPromise = new Promise((resolve, reject) => {
+                    const s = document.createElement("script");
+                    s.src =
+                        "https://www.google.com/recaptcha/api.js?render=" +
+                        SITE_KEY;
+                    s.async = true;
+                    s.onload = resolve;
+                    s.onerror = () => {
+                        recaptchaPromise = null; // allow retry
+                        reject(new Error("Failed to load reCAPTCHA"));
+                    };
+                    document.head.appendChild(s);
+                });
+                return recaptchaPromise;
+            }
+
+            // Pre-warm on first focus so the script is usually ready by submit.
+            const emailInput = document.getElementById("email");
+            if (emailInput) {
+                emailInput.addEventListener(
+                    "focus",
+                    () => loadRecaptcha().catch(() => {}),
+                    { once: true }
+                );
+            }
+
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
-
-                // get the email value
                 const email = form.email.value;
 
-                // run reCAPTCHA
-                grecaptcha.ready(function () {
-                    grecaptcha
-                        .execute(SITE_KEY, { action: "submit_form" })
-                        .then(function (token) {
-                            // now package up your payload
-                            const payload = {
+                loadRecaptcha()
+                    .then(
+                        () =>
+                            new Promise((resolve, reject) => {
+                                grecaptcha.ready(() => {
+                                    grecaptcha
+                                        .execute(SITE_KEY, {
+                                            action: "submit_form",
+                                        })
+                                        .then(resolve, reject);
+                                });
+                            })
+                    )
+                    .then((token) =>
+                        fetch(API_ENDPOINT, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
                                 email: email,
                                 recaptcha_token: token,
-                            };
-
-                            // POST it where you want
-                            fetch(API_ENDPOINT, {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify(payload),
-                            })
-                                .then((resp) => resp.json())
-                                .then((data) => {
-                                    responseMsg.textContent =
-                                        data.message ||
-                                        "Thanks! We'll let you know.";
-                                    responseMsg.classList.add("visible");
-                                    form.reset();
-                                })
-                                .catch((err) => {
-                                    // handle any network / parse errors
-                                    console.error(err);
-                                    responseMsg.textContent =
-                                        "Oops! Something went wrong.";
-                                    responseMsg.classList.add("visible");
-                                });
+                            }),
                         })
-                        .catch(function (err) {
-                            console.error("reCAPTCHA failed:", err);
-                            responseMsg.textContent =
-                                "reCAPTCHA error, please try again.";
-                            responseMsg.classList.add("visible");
-                        });
-                });
+                    )
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        responseMsg.textContent =
+                            data.message || "Thanks! We'll let you know.";
+                        responseMsg.classList.add("visible");
+                        form.reset();
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        responseMsg.textContent =
+                            "Oops! Something went wrong. Please try again.";
+                        responseMsg.classList.add("visible");
+                    });
             });
         </script>
     </body>

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js). No integrity hash: Google rolls gtag.js
+             server-side so any pinned digest would break on the next roll. -->
         <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-FQB3EBQHKY"
+            crossorigin="anonymous"
+            referrerpolicy="strict-origin"
         ></script>
         <script>
             globalThis.dataLayer = globalThis.dataLayer || [];
@@ -42,10 +45,15 @@
         />
         <meta property="og:url" content="https://digin.app/" />
         <meta property="og:type" content="website" />
-        <!-- Google Font -->
+        <!-- Google Fonts. The CSS at fonts.googleapis.com rotates (it sniffs
+             the UA to pick the right woff2 variant), so SRI hashes aren't
+             viable; `crossorigin` makes the load explicit-CORS instead. -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
             rel="stylesheet"
+            crossorigin="anonymous"
         />
         <style>
             :root {
@@ -1015,6 +1023,8 @@
                         "https://www.google.com/recaptcha/api.js?render=" +
                         SITE_KEY;
                     s.async = true;
+                    s.crossOrigin = "anonymous";
+                    s.referrerPolicy = "strict-origin";
                     s.onload = resolve;
                     s.onerror = () => {
                         recaptchaPromise = null; // allow retry

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <g transform="rotate(-14 400 400)">
+    <!-- Feather: almond vane up top, narrowing into a tapered reed/quill
+         handle at the bottom. The central rachis is cut out of the vane
+         only (handle stays solid), via fill-rule: evenodd. -->
+    <path d="
+      M 400 60
+      C 590 170, 615 430, 470 600
+      L 415 620
+      L 410 760
+      L 400 780
+      L 390 760
+      L 385 620
+      L 330 600
+      C 185 430, 210 170, 400 60 Z
+      M 394 130 L 406 130 L 408 590 L 392 590 Z
+    " fill="#020202" fill-rule="evenodd"/>
+  </g>
+</svg>

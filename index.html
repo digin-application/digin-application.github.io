@@ -326,7 +326,7 @@
 
             /* ---- Public Interest Pledge ---- */
             .pledge {
-                margin: 0 auto var(--section-spacing-mobile);
+                margin: 0 auto 62px;
                 max-width: 720px;
                 background: #fff;
                 border: 3px solid var(--primary-color);
@@ -549,8 +549,8 @@
             .footer {
                 text-align: center;
                 padding: 10px 0;
-                margin-top: 20px;
-                font-size: var(--fs-sm);
+                margin-top: var(--section-spacing-mobile);
+                font-size: calc(var(--fs-sm) * 0.85);
                 color: #666;
             }
 
@@ -577,13 +577,69 @@
                 align-items: center;
                 justify-content: center;
                 gap: 0.5em;
-                margin-bottom: 1em;
+                font-size: var(--fs-sm);
             }
 
             .footer-email a {
                 color: var(--primary-color);
                 font-weight: 600;
                 text-decoration: none;
+            }
+
+            .footer-copyright {
+                margin-top: 1.6em;
+                color: #999;
+            }
+
+            /* Credibility band: shown right after the signup CTA so a first-time
+               visitor sees the institutional origin at the decision moment.
+               order: 6 keeps it between first-fold-content (0) and footer (7)
+               in the .page-content flex column at every breakpoint. */
+            .trust-band {
+                order: 6;
+                margin-top: 16px;
+                padding: 24px 16px;
+            }
+            .trust-band__inner {
+                max-width: 520px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .trust-band__eyebrow {
+                font-size: var(--fs-sm);
+                font-weight: 800;
+                color: var(--primary-color);
+                text-transform: uppercase;
+                letter-spacing: 0.18em;
+                margin: 0 0 18px;
+            }
+            .trust-band__logo {
+                display: inline-block;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+            .trust-band__logo img {
+                display: block;
+                width: 270px;
+                max-width: 100%;
+                height: auto;
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+            .trust-band__statement {
+                margin: 20px auto 0;
+                font-size: calc(var(--fs-sm) * 0.92);
+                line-height: 1.65;
+                color: #555;
+            }
+
+            @media (min-width: 720px) {
+                .trust-band {
+                    padding: 40px 24px;
+                }
+                .trust-band__logo img {
+                    width: 320px;
+                }
             }
 
             /* 1. make the form controls sit side by side */
@@ -724,7 +780,7 @@
                 }
                 .pledge {
                     margin-top: 10px;
-                    margin-bottom: 40px;
+                    margin-bottom: 54px;
                 }
                 .problems-container {
                     margin-bottom: var(--section-spacing-tablet);
@@ -842,7 +898,7 @@
                 }
                 .pledge {
                     margin-top: 20px;
-                    margin-bottom: 60px;
+                    margin-bottom: 76px;
                 }
                 .benefits-container {
                     margin-bottom: 40px;
@@ -1231,7 +1287,7 @@
                             </svg>
                             <div class="pledge-eyebrow">The Public Interest Pledge</div>
                             <p class="pledge-body">
-                                Digin is <strong>free for every publisher</strong>, but we're not stopping there. <span class="key">Public media</span>, <span class="key">nonprofit news</span>, and <span class="key">local journalism</span> get our best terms and our fullest support, for as long as they're in the game.
+                                Digin is <strong>free for every publisher</strong>, but we're not stopping there. <span class="key">Nonprofit news</span>, <span class="key">public media</span>, and <span class="key">local news outlets</span> get our best terms and our full support, for as long as they're in the game.
                             </p>
                         </div>
 
@@ -1329,6 +1385,26 @@
                         </div>
                     </div>
 
+                    <aside class="trust-band" aria-label="Backing and origin">
+                        <div class="trust-band__inner">
+                            <p class="trust-band__eyebrow">In good company</p>
+                            <a
+                                class="trust-band__logo"
+                                href="https://rjionline.org/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <img
+                                    src="assets/rji.png"
+                                    alt="Reynolds Journalism Institute, University of Missouri"
+                                />
+                            </a>
+                            <p class="trust-band__statement">
+                                DigInThere started out as a fellowship project at the Reynolds Journalism Institute. DigIn is what the project grew into afterward: same heart, many new ideas, now developed and operated independently.
+                            </p>
+                        </div>
+                    </aside>
+
                     <div class="footer">
                         <div class="footer-email">
                             Say hi at
@@ -1337,16 +1413,9 @@
                             >
                         </div>
 
-                        <a href="https://rjionline.org/" target="_blank">
-                            <img
-                                src="assets/reynolds_journalism_institute_logo.jpeg"
-                                alt="Reynolds Journalism Institute Logo"
-                            />
-                            <span
-                                >Supported by the Reynolds Journalism
-                                Institute</span
-                            >
-                        </a>
+                        <div class="footer-copyright">
+                            &copy; 2026 Digin App, LLC. All rights reserved.
+                        </div>
                     </div>
                 </div>
             </section>

@@ -632,6 +632,16 @@
                 line-height: 1.65;
                 color: #555;
             }
+            .trust-band__archive-link {
+                display: inline-block;
+                margin-top: 14px;
+                font-size: calc(var(--fs-sm) * 0.92);
+                font-weight: 500;
+                color: var(--primary-color);
+                text-decoration: none;
+                border-bottom: 1px solid currentColor;
+                padding-bottom: 2px;
+            }
 
             @media (min-width: 720px) {
                 .trust-band {
@@ -1386,23 +1396,31 @@
                         </div>
                     </div>
 
-                    <aside class="trust-band" aria-label="Backing and origin">
+                    <aside class="trust-band" aria-label="A note on our history">
                         <div class="trust-band__inner">
-                            <p class="trust-band__eyebrow">In good company</p>
+                            <p class="trust-band__eyebrow">A note on our history</p>
                             <a
                                 class="trust-band__logo"
-                                href="https://rjionline.org/"
+                                href="https://diginthere.com/"
                                 target="_blank"
                                 rel="noopener"
                             >
                                 <img
                                     src="assets/rji.png"
-                                    alt="Reynolds Journalism Institute, University of Missouri"
+                                    alt="Reynolds Journalism Institute, University of Missouri (project origin)"
                                 />
                             </a>
                             <p class="trust-band__statement">
-                                DigInThere started out as a fellowship project at the Reynolds Journalism Institute. DigIn is what the project grew into afterward: same heart, many new ideas, now developed and operated independently.
+                                DigIn grew out of DigInThere, a project that spent part of its development as a 2024–2025 fellowship at the Reynolds Journalism Institute. DigIn is a separate, independent product, developed and operated by DigIn App, LLC. The Reynolds Journalism Institute and the University of Missouri are not affiliated with, and do not endorse or sponsor, DigIn or DigIn App, LLC; their name and logo appear here to credit the project's time at RJI.
                             </p>
+                            <a
+                                class="trust-band__archive-link"
+                                href="https://diginthere.com/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                The DigInThere fellowship archive &rarr;
+                            </a>
                         </div>
                     </aside>
 
